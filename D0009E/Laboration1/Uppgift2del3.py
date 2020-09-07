@@ -7,12 +7,12 @@ def recept(antal):
     intantal = int(antal)                                                 #Gör om "antal" från string till int. 
 
     egg = round((0.75*intantal))                                          #Om man utgår från att det går 3 ägg på 4 personer får man 0.75 ägg på 1 person.
-    white_sugar = round((0.75*intantal))                                  #Om man utgår från att det går 3dl strösocker på 4 personer får man 0.75dl strösocker på 1 person.
-    vanila_sugar = round((0.5*intantal))                                  #Om man utgår från att det går 2tsk vaniljsocker på 4 personer får man 0.5tsk vanlijsocker på 1 person.
-    bakingsoda = round((0.5*intantal))                                    #Om man utgår från att det går 2tsk bakpulver på 4 personer får man 0.5tsk på 1 person.
-    flour = round((0.75*intantal))                                        #Om man utgår från att det går 3dl mjöl på 4 personer får man 0.75dl mjöl på 1 person.
-    butter = round((18.75*intantal))                                      #Om man utgår från att det går 75gram smör på 4 personer får man 18.75gram smör på 1 person.
-    water = round((0.25*intantal))                                        #Om man utgår från att det går 1dl vatten på 4 personer får man 0.25dl vatten på 1 person.
+    white_sugar = (0.75*intantal)                                #Om man utgår från att det går 3dl strösocker på 4 personer får man 0.75dl strösocker på 1 person.
+    vanila_sugar = (0.5*intantal)                                  #Om man utgår från att det går 2tsk vaniljsocker på 4 personer får man 0.5tsk vanlijsocker på 1 person.
+    bakingsoda = (0.5*intantal)                                   #Om man utgår från att det går 2tsk bakpulver på 4 personer får man 0.5tsk på 1 person.
+    flour = (0.75*intantal)                                     #Om man utgår från att det går 3dl mjöl på 4 personer får man 0.75dl mjöl på 1 person.
+    butter = (18.75*intantal)                                      #Om man utgår från att det går 75gram smör på 4 personer får man 18.75gram smör på 1 person.
+    water = (0.25*intantal)                                        #Om man utgår från att det går 1dl vatten på 4 personer får man 0.25dl vatten på 1 person.
     
     print("Ägg", egg,"st")
     print("Strösocker", white_sugar,"dl")
@@ -37,8 +37,6 @@ def tidgrada(antal):                                           #Detta är funkti
 
 def sockerkaka(antal):                                         #Detta är huvudfunktionen.
     recept(antal)
-    tidgrada(antal)
-    tidblanda(antal)
 
     tid_totalt = tidblanda(antal) + tidgrada(antal)
     print()
