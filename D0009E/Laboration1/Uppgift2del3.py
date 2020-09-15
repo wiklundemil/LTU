@@ -36,6 +36,7 @@ def tidgrada(antal):                                           #Detta är funkti
 
 
 def sockerkaka(antal):                                         #Detta är huvudfunktionen.
+    
     recept(antal)
 
     tid_totalt = tidblanda(antal) + tidgrada(antal)
