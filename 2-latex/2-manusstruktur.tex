@@ -1,0 +1,337 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+\usepackage[left]{lineno}
+\newtheorem{theorem}{Theorem}
+
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+\renewcommand\linenumberfont{\normalfont\bfseries\small}
+
+
+\title{Dokumenttitel}
+%
+\author{För Fattare\thanks{email: \texttt{forfat-X@student.ltu.se}} \\  
+        ~ \\
+        Luleå tekniska universitet \\ 
+        971 87 Luleå, Sverige}
+%          
+\date{\today}
+
+
+\begin{document}
+
+
+\linenumbers
+
+
+\maketitle
+
+
+\begin{abstract}
+  \LaTeX-manus ska vara lätta att läsa och förstå. Detta uppnås genom
+  logisk gruppering av manusets delar som gör manuset
+  strukturerat. 
+\end{abstract}
+
+
+\section{Introduktion}
+
+
+Eftersom \LaTeX-manus ska läsas och förstås av inte bara maskiner utan
+också männsikor ska de vara strukturerade och välskrivna. Vi säger att
+innehållet ska vara \emph{logiskt grupperat}. Med detta menas att
+kommandon och andra grupperingsinstruktioner skrivs på ett sätt så det
+lätt går att se vilka delar som hör ihop och vad som påverkas/är del
+av/innesluts av vad. Manus skrivna på detta sätt är inte bara en fröjd
+att läsa, utan minskar mängden kryptiska fel och misstag man som
+författare gör under skrivarbetet. 
+
+
+Verktygen för att uppnå en tydlig och ändamålsenlig logisk gruppering
+är indentering, tomrader (som skiljer logiska avsnitt åt) och väl
+avvägd radbrytning. Radlängden är också medvetet anpassad så fyllda
+rader är ungefär lika långa och inte är längre än att de är bekväma
+att läsa. Med indentering menas att mellanslag läggs till i början av
+rader så att radens innehåll förskjuts åt höger. En väl avvägd
+radbrytning innebär en brytning av en rad på ett oväntat ställe men på
+så sätt att den logiska grupperingen ändå tydligt framgår. 
+
+
+Manuset till detta dokument visar hur ett manus kan skrivas för att
+vara lätt att läsa och förstå. När du läser manuset till detta
+dokument lägg således särskilt märke till hur indentering och
+radbrytning används för att hålla samma och tydliggöra logiska
+avsnitt. Notera också särskilt den aktiva och högst medvetna
+användningen av procenttecken i manuset, för att hålla samma logiska
+avsnitt och ändå skapa tomrum i vertikalled. Alltså, var, när du själv
+skriver \LaTeX-manus, alltid noga med
+%
+\begin{itemize}
+%
+  \item indentering,
+%
+  \item tomrader,
+%
+  \item radlängder,
+%
+  \item radbrytningar och
+%
+  \item placeringen av procenttecken för att hålla samman. 
+%
+  \end{itemize}
+%
+Det mesta av själva sakinnehållet i detta dokument -- rubriker, texter 
+och formler -- är dock nonsens och ska ignoreras.
+
+
+\section{Lorem ipsum}
+\label{sec:lorem}
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
+ultricies tortor. Cras dapibus dui id volutpat
+porta~\ref{sec:suspendisse} et~\ref{sec:curabitur}. 
+
+
+Mauris scelerisque orci at metus maximus semper vitae nec
+est. Curabitur $A$ dapibus, erat non congue bibendum, tellus neque
+efficitur $n$ et $m$ velit, a vehicula erat est nec nibh. Phasellus
+$x$ aliquam ipsum in placerat tristique. 
+
+
+\subsection{Phasellus elementum}
+\label{subsec:phasellus}
+
+
+Cras sed massa justo. Phasellus elementum tortor et turpis varius, et
+vestibulum tortor tristique. Ut et erat quis nisi fringilla commodo
+nec a lectus. Etiam accumsan lorem non mi gravida auctor. Aenean vel
+sagittis ante, quis commodo augue, 
+%
+\begin{equation}
+  \label{eq:1}
+  A_{nm}(x) = \sum_{i = n}^m x^{\frac{1}{i}},
+\end{equation}
+%
+mauris magna ligula, condimentum ut felis ac, egestas malesuada
+velit. In vitae varius ipsum.
+
+
+Fusce vel eleifend arcu. Proin diam turpis equation~\ref{eq:1},
+lacinia in ex fermentum, tristique consectetur velit. Phasellus
+ultricies vel lectus sit amet fermentum. 
+%
+\begin{enumerate}
+%  
+  \item Orci varius natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus.
+%
+  \item Pellentesque iaculis augue in efficitur ultricies.
+%
+  \item Pellentesque habitant morbi tristique senectus et netus et
+    malesuada fames ac turpis egestas.
+%
+\end{enumerate}
+%
+Vivamus ultricies vestibulum sagittis. Cras sed tempus ante. Integer
+fermentum, nisl sit amet convallis feugiat, neque augue feugiat magna,
+non mattis velit eros in augue.  
+
+
+\subsection{Aenean dignissim}
+\label{subsec:aenean}
+
+
+Morbi sagittis ac elit vel fringilla. Nunc luctus, quam et ornare
+congue, tortor libero dignissim lectus, sit amet placerat nunc orci et
+est:
+%
+\begin{center}
+  \textbf{Aenean dignissim tincidunt maximus.}
+\end{center}
+%
+Sed malesuada leo sed vestibulum elementum.
+
+
+Interdum et malesuada fames ac ante ipsum primis in
+faucibus\footnote{Curabitur mattis turpis eget lectus rutrum 
+auctor.}. Aliquam eget commodo nulla, 
+%
+\begin{equation}
+  \label{eq:2}
+  \sin^2 \alpha + \cos^2 \alpha = 1,
+\end{equation}
+%
+aliquet porttitor nisi. Proin fermentum enim vel arcu suscipit
+posuere. Sed libero elit, dignissim id purus hendrerit, bibendum
+finibus magna. 
+
+
+\section{Suspendisse}
+\label{sec:suspendisse}
+
+
+Maecenas quam lorem, accumsan sit amet nisi in, pharetra hendrerit
+tellus. Integer sit amet quam accumsan, blandit dui nec, finibus
+erat. Fusce ut ultricies massa. Mauris hendrerit dapibus enim ac
+lacinia.
+%
+\begin{table}[h]
+%
+  \begin{center}
+%
+    \begin{tabular}{|l|c|c|c|}
+      \hline
+      Suspendisse  & $M$ & $N$ & $P_M/P_N$ \\
+      \hline
+      Etiam        & XII & MXM & II        \\
+      \hline
+      Pellentesque & XVI & I   & MMLC      \\
+      \hline
+      Cras         & DIV & CCC & CLI       \\
+      \hline
+    \end{tabular}
+%
+    \caption{\label{tab:1} Suspendisse varius ut felis at pharetra.} 
+%
+  \end{center}
+%
+\end{table}
+%
+Nunc sed tellus augue.
+
+
+Etiam diam massa, mollis convallis malesuada ac, suscipit eget
+neque. Donec congue, mi a pellentesque porttitor, libero urna mattis
+erat, 
+%
+\begin{displaymath}
+  \frac{\partial u}{\partial t}
+    = h^2 \left(
+            \frac{\partial^2 u}{\partial x^2} +
+            \frac{\partial^2 u}{\partial y^2} +
+            \frac{\partial^2 u}{\partial z^2}
+          \right), 
+\end{displaymath}
+%
+rutrum porttitor dui lectus a sapien. Sed condimentum diam at
+euismod laoreet.
+
+
+\section{Curabitur}
+\label{sec:curabitur}
+
+
+Quisque egestas arcu non massa placerat suscipit. Curabitur ultrices,
+leo posuere dapibus placerat, justo nibh~\pageref{sec:lorem} gravida
+risus, eu dignissim felis tellus non magna equation~\ref{eq:1} et~\ref{eq:2}.
+Cras ipsum mauris,
+%
+\begin{displaymath}
+  e^{i\pi} + 1 = 0,
+\end{displaymath}
+%
+semper vitae leo vitae, mattis porttitor mauris. 
+
+
+Ut pellentesque gravida cursus. Aenean sit amet ex sollicitudin,
+scelerisque ante a, ultrices metus.
+%
+\begin{theorem}
+%
+  Pellentesque convallis urna a viverra placerat,
+%
+  \begin{equation}
+    \label{eq:4}
+%
+    H(m, n) = 
+    \begin{cases}
+      m    & \text{if } n < 0 \land m > 0 \\
+      n,   & \text{if } n > 0 \land m < 0 \\
+      n+m, & \text{otherwise}.
+    \end{cases}
+%
+  \end{equation}
+%
+\end{theorem}
+
+
+Proin eu ullamcorper dolor. In pharetra eros eget leo lacinia, quis
+bibendum libero scelerisque. Limit $\lim_{x\to\infty} f(x)$, fusce
+vestibulum blandit volutpat,
+%
+\begin{displaymath}
+  \lim_{x \to \infty} f(x). 
+\end{displaymath}
+%
+Duis et massa ac elit vestibulum rhoncus a sed nibh. Proin pretium
+nibh et est placerat, 
+%
+\begin{equation}
+  \label{eq:split}
+  %
+  \begin{split}
+    \tau &= \frac{\pi r^2}{2}   \\
+         &= \frac{1}{2} \pi r^2,
+  \end{split}
+  %     
+\end{equation}
+%
+in vulputate lacus consectetur,
+%
+\begin{align*}
+  (x + h)^2 - x^2 &= x^2  + 2xh + h^2 - x^2 && \text{(pulvinar nulla)} \\
+                  &= 2xh  + h^2             && \text{(luctus magna)} \\
+                  &= h(2x + h).
+\end{align*}
+
+
+In condimentum sem vitae faucibus luctus. Aenean quis augue elementum,
+varius nisi ut, scelerisque augue. Aenean non pulvinar nulla. Duis id
+laoreet tellus, a egestas felis. Morbi at leo lobortis, luctus magna
+et, dapibus nisi. 
+
+
+In nec finibus nisl. Donec malesuada pellentesque aliquet. Quisque et
+arcu lobortis, tristique metus a, fermentum ex. Sed ex urna, pretium a
+erat eu, elementum pretium justo~\cite{latexcompanion,einstein}. Maecenas
+tincidunt massa id est hendrerit, id interdum enim feugiat:
+%
+\begin{displaymath}
+  E = mc^2.
+\end{displaymath}
+%
+\begin{thebibliography}{99}
+%
+\bibitem{latexcompanion} 
+Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+\textit{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+%
+\bibitem{einstein} 
+Albert Einstein. 
+\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+[\textit{On the electrodynamics of moving bodies}]. 
+Annalen der Physik, 322(10):891–921, 1905.
+%
+\end{thebibliography}
+%
+\end{document}

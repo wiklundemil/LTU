@@ -1,0 +1,426 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}  % Denna rad är datorspecifik
+\usepackage[swedish]{babel}
+
+\title{Om \LaTeX\ och prov 1 i momentet \\ \emph{D. Texter och \LaTeX}
+  i kursen D0015E} 
+
+\author{H{\aa}kan Jonsson\\ ~\\ Institutionen för system- och
+  rymdteknik \\ Luleå tekniska universitet}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Prov 1 går ut på att skapa ett dokument identiskt med ett annat med
+  hjälp av \LaTeX. Här ges en förklaring till innehållet i den startfil
+  du får. 
+\end{abstract}
+
+\section{Allmänt}
+
+\LaTeX\ erbjuder fantastiska möjligheter att producera professionellt
+typsatt text, men också lika stora möjligheter att göra fel. Du måste
+därför vara \emph{mycket noggrann} då du skriver ditt
+\LaTeX-manus. Minsta tecken har betydelse och även små fel, som att
+råka använda en stor bokstav där det ska vara en liten, gör att varje
+försök att generera ett dokument från manuset rasar samman som ett
+korthus. 
+\begin{center}
+  \noindent
+  \fbox {
+    \parbox{0.8\textwidth}{
+      Skriv manuset i mycket små steg och generera dokument mellan
+      stegen, så får du eventuella fel i småportioner och kan enklare
+      åtgärda dem. Jag gör alltid så här och jag råder även dig att
+      göra det. 
+    }
+  }
+\end{center}
+
+\subsection{Layout}
+
+Skilj mellan \emph{innehåll} och \emph{utseende}. Koncentrera dig på
+innehållet, dvs att text och formler får korrekt innehåll, och överlåt
+sen åt \LaTeX\ att bestämma utseendet. Kanske detta känns ovant, för
+WYSIWYG\footnote{What-You-See-Is-What-You-Get.}-program som t ex
+Microsoft~Word bygger ju på att skribenter också bestämmer
+layouten. Men \LaTeX\ är inte något WYSIWYG-program. \LaTeX\ är
+programmerat med hjälp av de bästa layoutreglerna och layoutar bättre
+än oss alla i 99 fall av 100. Om du trots det tycker att layouten inte
+är bra så vänta med uttryckliga ändringar av layouten tills du fått
+allt innehåll korrekt(!) Annars skapar du bara en massa problem för
+dig själv. Även små ändringar av innehållet kan orsaka mycket stora
+ändringar av hur \LaTeX\ utformar dokumentets layout. 
+
+\subsection{Kommentarer}
+
+\LaTeX-systemet ignorerar allt på en rad efter ett procenttecken
+(\verb!%!). Med \verb!%! kan man således inkludera kommentar i sitt
+manus som inte påverkar det färdiga dokumentet men som kan vara
+viktiga för någon som läser manuset. Om du kikar på filen
+\texttt{koch-first.tex}, ett inledande men ofullständigt manus, ser du
+många sådana kommentarer som inkluderats som en hjälp till dig. Var
+och en av dem listar nämligen något som ska vara med i ditt färdiga
+manus och ungefär på den plats kommentaren förekommer.  
+
+\subsection{Kommandon och omgivningar}
+
+Ett \LaTeX-kommando startar med ett bakåt-snedstreck (\verb!\!). Sen
+följer kommandots namn och eventuella argument\footnote{Jämför med hur
+  funktioner och metoder används i \texttt{python}.}. Vill man t ex ha
+\textbf{text med fet stil} använder man kommandot \label{sec:textbf}
+\verb!\textbf{text med fet stil}!. Vill man istället att \emph{text
+  ska framhävas} så skriver man \verb!\emph{text ska framhävas}!. 
+\label{sec:emph} Det finns väldigt många olika kommandon och ett råd
+är att snarare googla efter/slå upp detaljer då du behöver dem än att
+lära dig dem alla utan till. 
+
+Förutom kommandon finns det även \LaTeX-omgivningar
+(\textit{environments} på engelska). Dessa inleds med \verb!\begin!,
+  avslutas med \verb!\end! och påverkar det som skriv mellan
+\texttt{begin-end}. Exempel: Om man vill 
+\begin{center}
+  centrera text
+\end{center}
+använder man omgivningen \texttt{center} och skriver
+\begin{verbatim}
+\begin{center}
+  centrera text
+\end{center}
+\end{verbatim}
+Om du läser manuset till detta dokument kommer du att se att jag
+använt omgivningen \texttt{verbatim} för att får in
+centreringsomgivningen ovan i min text.  
+
+\subsection{Tomrum}
+
+En tomrad bland text markerar nytt stycke. Detta kan märkas genom att
+första raden dras in eller att \LaTeX\ lägger in lite tomrum vertikalt
+mellan styckena. Var noga med eventuella tomrader du väljer att ta med
+i ditt manus. Däremot spelar godtyckligt många mellanslag mellan ord i
+text ingen annan roll än att de byts ut mot ett lagom stort mellanrum
+oavsett hur många de är. Därför kan man i regel fritt \emph{indentera
+  rader}, dvs stoppa in mellanslag i början av rader för att visa på 
+hur på varandra följande rader hör ihop, och därigenom dramatiskt öka
+manusets läsbarhet. För din egen skull - gör det!
+\begin{center}
+  \noindent
+  \fbox {
+    \parbox{0.8\textwidth}{
+      Jag brukar indentera sånt som är inne i en omgivning minst 2
+      mellanslag relativt närmast omgivande omgivning. Det gör att jag
+      enklare ser vad som tillhör vad. Om jag inte hinner indentera
+      när jag skriver så återvänder jag till texten och gör det
+      senare. Jag råder dig att indentera på samma sätt som mig, och
+      även då du programmerar datorer. I vissa språk, t ex
+      \texttt{python}, har indenteringen även betydelse för
+      slutresultatet.  
+    }
+  }
+\end{center}
+
+\section{Om prov 1}
+
+Här följer en genomgång av innehållet i \texttt{koch-first.tex} med 
+kommentarer. 
+
+\subsection{Inledningen}
+
+Varje manus inleds med lite allmänna deklarationer och importer. 
+
+\begin{itemize}
+  \item \verb|\documentclass[12pt,a4paper]{article}| säger att detta
+    är ett manus för en artikel som ska typsättas med 12 punkters 
+    typsnitt och passa på ett A4-ark. 
+  \item \verb|\usepackage[utf8]{inputenc}| anger den teckenkodning som
+    används. Detta är datorspecifikt så du kan behöva ändra
+    \texttt{uft8} till något annat t ex \texttt{latin1}.  
+
+    \verb|\usepackage| är ett kommando som importerar andra kommandon
+    och omgivningar än de som det grundläggande \LaTeX-systemet består
+    av. Kommandot gör det importerade tillgängligt när man skriver
+    manuset. 
+  \item \verb|\usepackage{graphicx}| gör det möjligt att inkludera
+    grafik, t ex JPEG-bilder eller PDF-filer. Detta gör man i
+    praktiken sen med kommandot \verb|\includegraphics|. 
+  \item \verb|\usepackage{amsmath, amsthm, amssymb}| utökar stödet för
+    matematik. 
+  \item \verb|\newtheorem{theorem}{Theorem}| introducerar
+    \texttt{theorem}, en ny omgivning för matematiska satser/teorem.  
+\end{itemize}
+
+Inledningen kan även spalta upp titel, författarnamn, datum,
+rubrikstilar och annat. Så görs i manuset för det dokument du just nu
+läser men inte i \texttt{koch-first.tex}.  
+
+\subsection{Själva dokumentet}
+
+Dokumentdelen av manuset består av omgivningen \texttt{document}. Allt
+som skrivs inom  
+\begin{verbatim}
+\begin{document}
+
+\end{document}
+\end{verbatim}
+hamnar i det färdiga dokumentet. Text som skrivs in hamnar i
+dokumentet i den ordning den skrivs (uppifrån och ned, vänster till
+höger). Kommandon och omgivningar säger om text är något speciellt som
+t ex rubriker, fotnoter, matematiska formler mm. \LaTeX\ väljer ett
+sätt att typsätta på, och bestämma layouten på, som passar texten och
+den pappersstorlek man angett i inledningen. 
+
+\begin{itemize}
+  \item \verb|\section| säger att här ska det in en
+    avsnittsrubrik. Argumentet till kommandot, i detta fall
+    \texttt{Headline...}, är rubriktexten. \LaTeX\ kommer att välja en
+    lagom storlek på rubriken (och övrig text) som passar till det
+    slutgiltiga dokumentets storlek.  
+  \item \verb|\emph| har vi gått igenom ovan på sidan
+    \pageref{sec:emph}. 
+  \item \verb|\cite| används för att referera till en referens, som
+    beskrivs i omgivningen \texttt{thebibliography} i slutet av
+    manuset. En referens är typiskt en artikel eller rapport. 
+    Här refererar vi referensen \texttt{koch}, vilket är
+    varför vi skriver\verb|\cite{koch}|. \LaTeX\ kommer att byta ut
+    \verb|\cite{koch}| mot ett löpnummer inom hakparenteser. 
+
+    Har man flera referenser ger
+    \LaTeX\ varje ett eget nummer och ser till att utbytena blir
+    rätt. Detta är mycket smidigt eftersom man inte själv behöver
+    hålla reda på löpnumren, utan kan helt överlåta detta åt
+    \LaTeX-systemet. Däremot måste man (förstås) själv definiera
+    referenserna och ge dem unika nyckelord (i detta fall
+    \texttt{koch}). 
+
+  \item \verb|figure| är en omgivning för figurer som man vill ha
+    bildtext till, t ex bilder. \verb|[h]| anger att vi vill ha
+    figuren just \textbf{h}är, och inte någon annanstans(!) Beroende
+    på \LaTeX:s layoutregler \emph{kan} figuren ändå hamna på annan
+    plats, vilket man då kan åtgärda. Men sådan åtgärd ska man alltså
+    vidta först när allt annat innehåll är korrekt (inte omedelbart
+    när man till sin fasa ser att figuren hamnar på fel ställe).  
+
+  \item \verb|\label| är en etikett för något i dokumentet som man sen
+    vill kunna referera till som avsnitt, ekvationer, sidor, bilder,
+    tabeller mm. Till \verb|\label| fogar man ett unikt namn på
+    etiketten som man sen känner igen. En etikett för ett inledande
+    avsnitt skulle kunna vara \verb|sec:intro| medan man för en
+    ekvation kanske använder \verb|eq:pythagoras|. De här prefixen
+    \texttt{sec:} och \texttt{eq:} är inget \LaTeX-systemet kräver,
+    utan bara till för att man snabbt ska se vad för något en referens
+    leder till. För en figur brukar jag skriva t ex
+    \verb|\label{fig:circle}|, där \texttt{fig:} gör det lätt att
+    skilja etiketten från etiketter för avsnitt och ekvationer. Du får
+    döpa dina etiketter som du vill men håll dig till vanliga
+    bokstäver i etikettnamnen. 
+
+    Avsnitt, ekvationer, figurer och annat numreras separat inom
+    respektive sort och stigande. Det går dock att ändra detta (men
+    det behöver man sällan). 
+
+  \item \verb|\centering| inne i en \texttt{figure} ger centrering av
+    figuren. Omgivningen \texttt{center} fungerar likartat men ska
+    inte användas just här. 
+
+  \item Kommandot \verb|\includegraphics| säger att här ska grafik
+    in från en fil vars namn ett argument anger. Vår fil heter
+    \texttt{snowflake.jpg} och dessutom föreskriver vi att vi vill att
+    bilden får en bredd på 9 cm. Detta behövs egentligen inte, men då 
+    får bilden sin naturliga storlek som kan vara direkt
+    olämplig. 
+
+    Bilder är något \LaTeX\ inte klarar av särskilt väl. Bildhantering
+    i \LaTeX\ är krångligt, blir ofta fel, och därför har jag
+    inkluderat hela det kommando du ska använda för att få in bilden 
+    på snöflingans första konstruktionssteg. 
+
+  \item \verb|\caption| anger en bildtext.
+
+  \item Omgivningen \texttt{quote} lägger in ett längre citat, och
+    indenterar från både höger och vänster.
+
+  \item \verb|\textit| ger kursiv stil. 
+
+  \item Kommandot \verb|\ref| används för att referera till något i
+    dokumentet som märkts ut med en etikett. Om man t ex lagt in en
+    (1) figur i sitt dokument, och i denna inkluderat etiketten
+    \verb|\label{fig:snowflakes}|, så kommer
+    \verb|\ref{fig:snowflakes}| i texten sen att bytas ut mot en
+    1:a. Skulle figuren vara den andra i ordning, sker utbytet
+    istället till en 2:a. 
+
+  \item \verb|\subsection| fungerar som \verb|\section| men används
+    för rubriknivån omedelbart under den översta. I \LaTeX\ finns även
+    ytterligare en nivå, som man får med \verb|\subsubsection|. 
+
+  \item Omgivningen \texttt{theorem} typsätter en typisk matematisk
+    sats. Fyll i med påståendet i satsen mellan \texttt{begin} och
+    \texttt{end}.  
+
+  \item \verb|proof| används för bevis. I ditt manus ska du skriva kod
+    för två bevis, som alltså läggs in i omgivningen
+    \verb|proof|. Notera att \texttt{proof} automatiskt lägger till en
+    passande slutsymbol.  
+
+  \item Matematisk löptext märks i \LaTeX\ ut genom att omges av
+    dollartecken (\verb|$|). Skriver man t ex
+    \verb|$f(x)+f(2x)/2+f(3x)/3$| typsätts det som matematisk text,
+    dvs 
+    \begin{displaymath}
+       f(x)+f(2x)/2+f(3x)/3,
+    \end{displaymath}
+    och inte som vanlig text, dvs f(x)+f(2x)/2+f(3x)/3. Lägg noga
+    märke till stilskillnaden. Det är lika fel att typsätta
+    matematiska formler som vanlig löptext som att säga att löptext
+    ska se ut som matematisk text. I prov~1 finns flera tillfällen när
+    det gäller att välja rätt typ av text. 
+
+    (Matematiska formler kan även märkas ut på andra sätt.)
+
+  \item \verb|\Delta| ger den grekiska bokstaven stora D~(dvs
+    $\Delta$). 
+
+  \item \verb|N_i| ger i matematisk text $N_i$, dvs
+    understrykningstecken ger (i matematiska formler) ett index. 
+
+  \item \verb|displaymath| ger en formel som typsätts fritt i ett
+    större vertikalt mellanrum. Man behöver inga dollartecken i
+    omgivningen, utan \LaTeX\ förutsätter att det som skrivs där måste
+    vara matematik.  
+
+    Samma matematiska text kan i regel antingen typsättas i löptext,
+    med dollartecken, eller fritt med bl a \texttt{displaymath}; se
+    även \texttt{equation} nedan.  
+
+  \item \verb|cases| används för ekvationer med många fall. 
+
+  \item Skriver man \verb|\text{en mening}| i matematiska formler
+    typsätts \texttt{en mening} ändå som vanlig löptext. Detta är
+    användbart när man vill lägga till förklaringar.  
+
+  \item \verb|N_{n-1}| ger ett mera komplicerat index på
+    $N$. Klammerparenteser kan alltid användas för att gruppera
+    ihop. Skriver man t ex \label{sec:maas} 
+    \begin{center}
+      \verb|$B_{N_{i+1}+M_{j+2i}}$|
+    \end{center}
+    får man 
+    \begin{displaymath}
+      B_{N_{i+1}+M_{j+2i}}.
+    \end{displaymath}
+    På samma sätt kan t ex omfattande exponenter och integralgränser
+    skapas.  
+
+  \item \verb|equation| används som \texttt{displaymath} men ger
+    automatiskt ett ekvationsnummer som skrivs ut i marginalen. Koden  
+    \begin{verbatim}
+\begin{equation}
+  \label{eq:first}
+  f(x) = x^2 + 2x + 9
+\end{equation}
+  \end{verbatim}
+    ger t ex 
+    \begin{equation}
+      \label{eq:first}
+      f(x) = x^2 + 2x + 9
+    \end{equation}
+    och refererar man sen till etiketten \texttt{eq:first} med 
+    \verb!Eq.~\ref{eq:first}! gör \LaTeX\ om detta till 
+    \begin{quote}
+      Eq.~\ref{eq:first}
+    \end{quote}
+    Den ''våg'' (\verb|~|) som syns i koden kallas \emph{tilde} och är
+    ett fast mellanslag, ett slags klister som beordrar \LaTeX\ att
+    behandla det ihopklistrade som ett ord. Detta används för att
+    hindra radbrytning mellan Eq. och siffran \ref{eq:first}. I just
+    detta sammanhang får radbrytning inte ske, och \LaTeX\  måste då
+    upplysas om det. 
+
+  \item \verb|\cdot| ger en centrerad punkt i matematik. En sådan
+    brukar användas för att visa multiplikation mellan två tal eller
+    där man annars vill trycka på att det verkligen är
+    multiplikation. Annars ska man aldrig använda en punkt för
+    multiplikation. Alltså, man skriver $f(x)g(x)$ och inte $f(x)\cdot
+    g(x)$. Däremot måste man skriva $3\cdot 4$ för annars blir det
+    $34$, dvs ett tal och inte en multiplikation. 
+
+  \item Tecknet \verb|^| ger ''upphöjt i'', dvs en exponent i
+    matematisk text. Exempel: Att skriva \verb|$x^{f(x)}$| ger
+    $x^{f(x)}$.  Notera användningen av klammerparenteser för att
+    grupera ihop hela exponenten på samma sätt som de tidigare höll
+    samman större index (se sidan \ref{sec:maas}). Har man en enkel
+    exponent behövs inga klammerparenteser. För att få $x^2$ räcker
+    det att skriva \verb|$x^2$|. 
+
+  \item \verb|\frac| används för bråk. Exempel:
+    \verb|\frac{L_{n-1}}{3}| ger, om det placeras i en
+    \texttt{displaymath}, 
+    \begin{displaymath}
+      \frac{L_{n-1}}{3}
+    \end{displaymath}
+    \verb|\frac| passar ofta mindre bra i löptext, då allt kan se
+    högst ihoptryckt ut: $\frac{L_{n-1}}{3}$. Då kan man ofta få
+    finare text genom att använda ett helt vanligt snedstreck: 
+    $L_{n-1}/3$
+
+  \item \verb|\left| och \verb|\right| ger storleksanpassade
+    parenteser. Skriver man \verb|( \frac{4}{3} )| får man 
+    \begin{displaymath}
+      ( \frac{4}{3} )
+    \end{displaymath}
+    medan \verb|\left( \frac{4}{3} \right)| ger det betydligt snyggare 
+    \begin{displaymath}
+      \left( \frac{4}{3} \right)
+    \end{displaymath}
+    Istället för parenteser kan man använda annat t ex
+    klammerparenteser eller hakparenteser. Observera att \verb|\left|
+    och \verb|\right| alltid förekommer i par. 
+
+  \item \verb|\infty| ger tecknet $\infty$, oändligheten. 
+
+  \item Förkortningen i.e., dvs ''that is'', skrivs \verb| i.e.\ | med
+    ett mellanslag direkt efter bakåtsnedstrecket. 
+
+  \item \verb|\sqrt| ger kvadratroten ur något. \verb|$\sqrt{x}$| blir
+    $\sqrt{x}$.  
+
+  \item \verb|\ldots| ger tre punkter på textens baslinje och används
+    för att markera att något utelämnats. 
+
+  \item Omgivningen \verb|equation*| fungerar som
+    \texttt{displaymath}. 
+
+  \item \verb|align*| är en omgivning för ekvationer som går över
+    många led och rader. 
+
+  \item \verb|\sum| ger ett summatecken i matematisk text. Skriver man 
+    \verb| \sum_{k=1}^n b_k| får man t ex $ \sum_{k=1}^n b_k$ i
+    löptext och  
+    \begin{displaymath}
+       \sum_{k=1}^n b_k
+    \end{displaymath}
+    i fri text. 
+
+  \item \verb|\lim| används för gränsvärden. Skriver man t ex
+    \begin{center}
+      \verb!\lim_{x \to \infty} \frac{1}{x} = 0!
+    \end{center}
+    blir det $\lim_{x \to \infty} \frac{1}{x} = 0$ i löptext och 
+    \begin{displaymath}
+      \lim_{x \to \infty} \frac{1}{x} = 0
+    \end{displaymath}
+    i en \texttt{displaymath}. 
+
+  \item \verb|\to| ger en högerpil.
+
+  \item \verb|thebibliography| är en omgivning som bygger upp en
+    referenslista där varje referens anges med hjälp av kommandot
+    \texttt{bibitem}.  
+
+  \item \verb|\textbf| gick vi slutligen igenom på sidan
+    \pageref{sec:textbf} i början av detta dokument.   
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,489 @@
+% skapa en "article" med 12 punkters text och små marginaler
+\documentclass[12pt,a4wide]{article} 
+
+\usepackage[utf8]{inputenc}  % teckenkodningen är UTF-8
+\usepackage[swedish]{babel}  % detta dokument skrivs på svenska
+
+\usepackage{amsmath}         % tillför extra stöd för matematik
+\usepackage{amsthm}          % tillför extra stöd för matematik
+\usepackage{enumerate}       % ger flexibel listnumrering, om man vill
+\usepackage[final]{graphicx} % för att kunna inkludera bilder
+
+\newtheorem{exempel}{Exempel} % för att kunna visa exempel i texten
+
+% nedanstående 14 rader kan skippas; de definierar de nya
+% omgivningarna "uppgift" och "avklarad"
+\usepackage{framed}
+\usepackage{wasysym}  
+\newtheoremstyle{uppgiftsstil}{0pt}{0pt}{}{}{\bfseries}{.}{.5em}{}
+\theoremstyle{uppgiftsstil} 
+\newcommand{\ovningstext}{Övningsuppgift}
+\newtheorem{ovning}{\ovningstext} 
+\newenvironment{uppgift}{\begin{framed}\begin{ovning}}%
+                        {\end{ovning}\end{framed}}
+\newtheoremstyle{avklaradstil}{0pt}{0pt}{}{}{}{!~\smiley}{.5em}{}
+\theoremstyle{avklaradstil} 
+\newcommand{\avklaradtext}{Avklarad övningsuppgift}
+\newtheorem{klar}[ovning]{\avklaradtext}
+\newenvironment{avklarad}{\begin{framed}\begin{klar}}%
+                         {\end{klar}\end{framed}}
+
+\title{Om att chansa på kryssfrågeprov}  % titeln på hela rapporten
+
+% författaren med kontaktinformation
+\author{Håkan Jonsson\thanks{Email:~\texttt{hj@ltu.se}} \\
+  Luleå tekniska universitet \\  % två bakåtsnedstreck betyder "ny rad"
+  97187 Luleå}       
+
+\begin{document}         % börja att typsätta här
+
+\maketitle               % typsätt titeln 
+
+\begin{abstract}         % sammanfattningen, som hamnar efter titeln
+  I denna rapport redovisar vi hur vi har löst två uppgifter
+  som handlar om hur många poäng man kan förvänta sig att få om man
+  chansar sig genom ett prov med kryssfrågor.
+\end{abstract}
+
+\section{Introduktion} % första avsnittet i rapporten
+\begin{uppgift}
+  Ändra titeln så att den istället lyder: ''Att chansa på
+  traditionella kryssfrågeprov lönar sig''. 
+
+  \medskip
+
+  Generera ett nytt dokument baserat på \LaTeX-manuset och
+  kolla att det blir rätt. Experimentera gärna med
+  olika varianter innan du går vidare! 
+
+  \medskip
+
+  När du är klar med uppgiften så byt namn på själva
+  uppgiftsomgivningen från \texttt{uppgift} till
+  \texttt{avklarad}. Ändra alltså \verb|\begin{uppgift}| och
+  \verb|\end{uppgift}| till \verb|\begin{avklarad}| respektive
+  \verb|\end{avklarad}|. Detta ändrar texten överst till vänster i
+  rutan så att du enkelt kan se hur långt du kommit om du t ex behöver
+  ta en paus.   
+
+  \medskip
+
+  Ovanstående gäller för alla övningsuppgifter nedan trots att det
+  inte upprepas. 
+\end{uppgift}
+\begin{avklarad}
+  Ändra så att du står som författare. Byt även ut mailadressen
+  till din egen studentmail. 
+\end{avklarad}
+I denna rapport, 
+som 
+är 
+en 
+del 
+av 
+kursmaterialet  % obs! radbrytning i löptext har ingen betydelse 
+i kursen 
+D0015E \label{d0010e} om % en etikett 
+datateknik och ingenjörsvetenskap 
+vid Luleå tekniska universitet,
+redovisar vi hur vi har löst följande två uppgifter som berör
+chansningar på kryssfrågeprov:
+\begin{uppgift}
+  Skriv om ovanstående (långa) mening till två meningar med samma
+  betydelse, där den första meningen förklarar att rapporten är en del
+  av kursmaterialet och den andra säger att rapporten berör
+  chansningar på kryssfrågeprov.  Se till att etiketten
+  (\texttt{d0010e}) fortfarande följer direkt efter kurskoden. 
+\end{uppgift}
+\begin{enumerate}            % en lista, en uppräkning av "item":s
+  \item Vad är det förväntade antalet poäng man får på en enskild
+    fråga om man chansar utan att ens titta på
+    svarsalternativen? \label{item:question}  % etikett  
+  \item Hur många poäng kan man totalt förvänta sig att få på ett prov
+    om man chansar på alla frågor? \label{item:test} % ännu en etikett 
+\end{enumerate}              % slut på listan
+Uppgifterna behandlas i var sitt avsnitt nedan. 
+\begin{uppgift}
+  Ange några anledning till att denna rapport skrivits. Använd en
+  \texttt{enumerate}-omgivning och räkna upp följande anledningar:
+  Lära sig mer om chansningar och lära sig \LaTeX.  
+\end{uppgift}
+
+\section{Definitioner och inledande beteckningar} 
+
+För att resonera om kryssfrågor och prov inför vi några definitioner. 
+\begin{uppgift}
+  Med \verb|\textbf| får man \textbf{fet stil}. Ändra så att ordet
+  ''definitioner'' ovan skrivs med fet stil. 
+\end{uppgift}
+En \emph{kryssfråga}         % betonad text
+är en fråga till vilken det finns ett mängd \emph{svarsalternativ},
+eller bara \emph{svar}, varav minst ett är \emph{korrekt}. 
+\begin{uppgift}
+  Inför följande definition av \emph{fråga}: 
+  \begin{quote}
+    En fråga uttrycks med hjälp av en frågesats och är en
+    språkhandling avsedd att frambringa information. 
+  \end{quote}
+\end{uppgift}
+Svar som inte är korrekta kallas \emph{felaktiga}. Ett \emph{prov} är
+en mängd kryssfrågor som alla har 
+$k\geq 1$        % ger matematisk text, \geq = "greater than or equal"
+svarsalternativ varav 
+$r\leq k$          % \leq = "less than or equal"
+är korrekta.
+\begin{uppgift}
+  Skriv en mening om att det alltid finns minst ett korrekt
+  svar. Inkludera en olikhet som relaterar $r$ till 1 (och $k$). 
+\end{uppgift}
+%
+%
+% vill man göra manuset luftigare i vertikalled utan att förändra
+% manusets betydelse kan man skriva in såna
+% här rader med inledande procenttecken
+%
+%
+%
+\begin{exempel}    % ett av våre exempel vi tillfört möjligheten att visa
+  Om två svar av fem är korrekta på en kryssfråga så är $r=2$ och
+  $k=5$.
+\end{exempel}       % slut på första exemplet
+\begin{uppgift} \label{exuppgift}
+  Lägg till ytterligare ett exempel i vilket ett svar av fyra är
+  korrekt. 
+\end{uppgift}
+%
+%
+% notera dock att tomrader INTE bör läggas till hur som
+% helst, för de betyder "nytt stycke" och gör att det färdiga 
+% dokumentets layout förändras
+%
+%
+På varje fråga får högst ett svarsalternativ väljas. Ett korrekt svar
+ger 1 poäng medan felaktiga svar och obesvarade frågor ger 0
+poäng. Poängen på alla frågorna summeras ihop till provets
+\emph{totalpoäng}. Vid chansning, dvs val av svar på måfå, antar vi
+att sannolikheten för att välja ett visst svar är likformigt
+fördelad. För att resonera omkring vad chansning ger så använder vi
+oss av grundläggande sannolikhetslära~\cite{grimaldi}.  
+    % med \cite refererar man till en källa, i detta fall 
+    % till den enda bok som finns beskriven i slutet av manuset 
+\begin{uppgift}
+  I slutet av manuset kan du se hur kommandot \verb|\bibitem| används
+  för  att skriva in en referens till en källa -- i detta fall en
+  mattebok som i manuset ges nyckelordet \texttt{grimaldi} -- i
+  omgivningen \verb|thebibliography|. Här ovan syns hur denna 
+  källa sen refereras i löptexten med kommandot
+  \verb|\cite{grimaldi}|. I slutet av manuset kan man rada upp
+  godtyckligt många källor. Varje källa ska då inledas av
+  \verb|\bibitem| och ett unikt nyckelord som får väljas fritt. 
+  \begin{enumerate}
+      \item Lägg till följande källa:  
+        \begin{quote}
+          Håkan Jonsson.  \emph{Motivating and Preparing First-Year Students
+            in Computer and Engineering Science}.  Proceedings of the
+          ASEE/IEEE 43rd Frontiers in Education Conference.  Oklahoma City,
+          Oklahoma, USA, Oct 22-26, 2013.
+        \end{quote}
+      \item   Referera sen till den nya källan direkt efter kurskoden
+        D0015E på sidan
+        \pageref{d0010e}.  %  \pageref ger på vilken sida etiketten finns
+        Skriv ett tilde (\verb|~|) som klister mellan kurskoden och
+        \verb|\cite|-kommandot med den nya källans nyckelord. 
+  \end{enumerate}
+\end{uppgift}
+
+\section{Antal poäng på en enskild fråga} 
+
+\label{sect:question}   
+    %  \label definierar en etikett ("sect:question") med 
+    %  (i detta fall) avsnittsnumret som värde.
+    %  med \ref kan man sen få in värdet i texten
+    %  (i detta fall skriver man i så fall  \ref{sect:question} )
+\begin{uppgift}
+  Ta bort ordet \underline{enskild} från titeln på
+  avsnitt~\ref{sect:question}.  
+\end{uppgift}
+Första uppgiften handlar om vad den förväntade poängen på en
+kryssfråga är om man bara svarar på måfå. 
+
+\subsection{Sannolikheter}       % ett delavsnitt
+
+Låt $X_i$    % Ett _ inleder ett index; här blir i index till X
+vara en stokastisk variabel (även kallad \emph{slumpvariabel}) vars
+värde är poängen på fråga $i$. Utfallsrummet $\Omega$  
+    %  \Omega ger den grekiska bokstaven "stora O"
+    %  Alla grekiska bokstäver finns, både stora och små
+som involverar $X_i$ innehåller då de två oberoende händelserna
+$\{\text{$X_i$ är 0, $X_i$ är 1}\}$ 
+% \{  och \}  ger klammerparenteser, { }, i texten
+% \text ger "vanlig" text i matematisk text
+som motsvarar 0 respektive 1 poäng på frågan.
+
+\begin{uppgift}
+  Skriv ett stycke, i vilket du har med två slumpvariabler $X_i$ och
+  $X_j$ där $i \not= j$, och förklarar att de är oberoende om deras
+  händelser är oberoende. Två händelser är oberoende om  utfallet av
+  den ena händelsen inte påverkar utfallet av den andra händelsen.  
+\end{uppgift}
+
+För att få poäng ska man välja en av de $r$ korrekta svaren bland de
+totalt $k$ svarsalternativ som finns. Enligt den klassiska
+sannolikhetsdefinitionen, där sannolikheten är antalet gynnsamma
+händelser delat med totala antalet händelser, gäller då att 
+\begin{equation}           % början av en numrerad ekvation
+  \label{eq:2}             % en etikett, nu till ekvationsnumret
+  P(X_i=1) = \frac{r}{k},  % \frac = ett bråk
+\end{equation}             % slut på ekvationen
+där $P$ är en sannolikhetsfunktion. 
+
+\begin{uppgift}
+  Använd en \texttt{itemize}-omgivning och förklara att det för en
+  sannolikhetsfunktion $P$ gäller \underline{dels} att sannolikheten
+  $P(H)$ för att en given händelse $H$, av de möjliga händelser som
+  kan inträffa, är mindre än eller lika med 1 (vilket går att
+  uttrycka matematiskt som en olikhet) \underline{dels} att summan av
+  sannolikheterna för alla möjliga händelser är precis 1 (som går att
+  uttrycka som en likhet med en summasymbol). 
+\end{uppgift}
+
+\begin{uppgift}
+  Lägg här till den ekvation som du får om du bryter ut $r$ ur
+  ekvation~\ref{eq:2}. Skriv nåt i stil med att ''Det betyder t ex
+  att...'' och så ekvationen. 
+\end{uppgift} 
+
+För komplementhändelsen $X_i=0$, dvs att svaret är felaktigt, gäller
+då att 
+\begin{equation}    % ännu en ekvation
+  \label{eq:3}      % ännu en etikett (till denna ekvations nummer)
+  \begin{aligned}    
+    % en ekvation över flera rader med = under varandra
+    % även \begin{align*} ... \end{align*} kan användas 
+    P(X_i=0) &= 1-P(X_i=1)  \\
+             &= 1-\frac{r}{k}  \\
+             &= \frac{k - r}{k}.
+  \end{aligned}
+\end{equation}
+\begin{uppgift} \label{uppgiftA}
+  Lägg till en motsvarande uträkning som, rad för rad som i
+  uträkningen av ekvation~\ref{eq:3}, istället visar vad $P(X_i=1)
+  \cdot P(X_i=1)$ är uttryckt i $r$ och $k$. Alltså, något i stil med:
+  \begin{equation}   
+    \label{ekva}
+    \begin{aligned}    
+      P(X_i=0) \cdot P(X_i=1) &= \ldots \\ 
+                              &= \ldots \\
+                              &= \ldots 
+    \end{aligned}
+  \end{equation}
+  På sista raden ska du ha nått fram till en produkt $g(r)h(k)$, där
+  $g(r)$ är en funktion som beror av $r$ medan $h(k)$ är en funktion
+  som beror av $k$. Ett exempel på sådan produkt, som dock \emph{inte}
+  är vad du kommer att komma fram till, är 
+  \begin{displaymath}
+    4r\frac{k}{k+1}
+  \end{displaymath}
+  där alltså $g(r)=4r$ och $h(k)=k/(k+1)$. 
+\end{uppgift}
+\begin{uppgift}
+  Tänk ut varför produkten $ P(X_i=0) \cdot P(X_i=1) $ i
+  ekvation~\ref{ekva} alltid är mindre än eller lika med 1. Lägg till
+  en mening om det.  
+\end{uppgift}
+Med hjälp av sannolikheterna kan vi beräkna det förväntade
+väntevärdet av poängen på fråga $i$. 
+\begin{uppgift}
+  Här är två uppgifter som ankyter till etiketter och referenser till
+  etiketter (forts. nästa sida). 
+  \begin{enumerate}
+    \item Lägg till en mening som refererar till ekvationen i
+      uppgift~\ref{uppgiftA}. Fantisera ihop något om att vi
+      \emph{kanske} skulle kunna använda denna ekvation senare i
+      rapporten. 
+    \item Ändra din mening till att avse nästa avsnitt, det om
+      väntevärde, genom att lägga till en etikett efter den
+      avsnittsrubriken och referera till den.  
+  \end{enumerate}
+\end{uppgift}
+
+\subsection{Väntevärde}
+
+För att beteckna en stokastisk variabels väntevärde använder man
+\emph{vänte\-värdes\-operatorn} $E$. 
+    % bakåtsnedstreck-bindesstreck anger var avstavning bör ske
+För en godtycklig stokastisk variabel $A$ är väntevärdet definierat
+som 
+\begin{equation*}             % en icke numrerad ekvation
+  E[ A ] = \sum_x xP(A = x),  % \sum = stort summatecken
+\end{equation*}
+där $\sum_x$ betecknar att vi summerar över alla värden som
+ % notera storleksskillnaden för \sum_x  i equation resp mellan $ $
+slumpvariabeln kan anta. 
+
+\begin{uppgift}
+  Ändra så att ekvationen blir numrerad.
+\end{uppgift}
+
+Denna definition ger oss, tillsammans med ekvationerna~\ref{eq:2}
+och~\ref{eq:3},   
+    %  \ref tar in etikettsvärdena i texten här
+att det förväntade antalet poäng är 
+\begin{align} % flerradsekvation med numrerade rader
+  E[X_i] &= 0\cdot P(X_i=0)+1\cdot P(X_i=1) \nonumber \\ % ej nummer
+         &= P(X_i=1) \nonumber \\                        % ej nummer
+         &= \boxed{\frac{r}{k}}, \label{eq:oneq}         % ha nummer
+\end{align}
+vilket är svaret på uppgift~\ref{item:question}. 
+    % \ref{item:question} byts i det färdiga dokumentet ut mot 
+    % ut mot numret på den uppgiften
+
+\begin{uppgift}
+  Förutom summor kan man uttrycka det mesta matematiskt både vackert
+  och funktionellt med \LaTeX, t ex integraler. Med koden 
+  \verb|$\int_0^x  f(x) \, \text{d}x$|får vi $\int_0^x  f(x) \,
+  \text{d}x$ eller  
+  \begin{displaymath}
+    \int_0^x f(x) \, \text{d}x
+  \end{displaymath}
+  om vi sätter uttrycket i en matematikomgivning (\verb|displaymath| i
+  detta fall). Storleken på integreringssymbolen anpassas, precis som
+  summatecknet tidigare, efter var det ska skrivas ut. Två saker:
+  \begin{itemize}
+    \item Sekvensen \verb|\,| står för ett litet mellanrum när det
+      står i matematisk text. Vi behöver tala om för \LaTeX\ att det
+      ska vara ett mellanrum för annars skrivs allt ihop som $f(x)
+      \text{d} x$ då det ska vara $f(x) \, \text{d} x$. 
+    \item Sen så används \verb|\text| för att få in vanlig text i
+      matematisk text. Vårt d är ju operatorn d och inte variabeln
+      $d$. Många struntar dock i denna skillnad och använder $d$ för
+      både operator och variabel. Man får göra som man vill så länge
+      det inte uppstår tvetydigheter.
+  \end{itemize}
+  Uppgifter:
+  \begin{enumerate}
+    \item Ändra först exemplets övre intervallgräns till 5 och byt sen
+      ut $f(x)$ mot $\sin x$. Det senare skrivs \verb|\sin x|.  
+
+      För varje trigonometrisk funktion, t ex sin, finns ett kommando
+      i \LaTeX\ som ser till att dess namn skrivs ut rätt i matematisk
+      text. Cosinus skrivs t ex \verb|\cos| medan man använder
+      \verb|\log| för logaritmer.  
+    \item Ta bort det inledande bakåtsnedstrecket från \verb|\sin|,
+      det vill säga lämna kvar endast \verb|sin|. Observera
+      skillnaden. Stoppa tillbaka bakåtsnedstrecket så att $\sin x$
+      skrivs ut rätt igen. 
+    \item Ändra nu gränsen till 10, dvs byt ut \verb|^x| mot
+      \verb|^{10}|. 
+
+      Klammerparenteserna behövs för att hålla samman siffrorna. Utan
+      klammerparenteser blir exponenten endast den första 1:an. Testa
+      med både \verb|^10| och  \verb|^{10}| så ser du denna skillnad. 
+    \item Ändra istället gränsen till 1000 och byt ut \verb|\sin x| 
+      mot polynomet \verb|x^2|. Även denna gräns måste klamras ihop
+      som i föregående deluppgift. 
+
+      Tecknet \verb|^|, ibland kallat ''upphöjttecken'', används för
+      såväl exponenter som övre gränser på summor och integraler.  
+    \item Ändra polynomet $x^2$ till ett tredjegradspolynom i
+      $x$. Variera termernas koefficienterna.  
+    \item Ändra slutligen gränsen till \verb|\infty|, oändligheten
+      ($\infty$). Här kan man, men behöver inte, använda
+      klamrarna. 
+
+      Detta beror på att det inledande bakåtsnedstrecket i
+      \verb|\infty| signalerar starten på ett kommando, vilket då
+      läses in i sin helhet innan något annat görs. Klamrar fungerar
+      på samma sätt. När den vänstra klammerparentesen påträffas så
+      signalerar detta starten på något som ska sitta ihop. Detta
+      något avslutas i och med att klammerparentesen till höger
+      påträffas. När däremot siffor och bokstäver påträffas så
+      hanteras de en i taget. 
+  \end{enumerate}
+\end{uppgift}
+
+% OBS! Tomrad betyder nytt stycke i LaTeX och kan påverka det slutliga
+% dokumentets utseende
+
+\begin{exempel}  
+    % in med ett exempel, som vi definerat det med newtheorem
+    % i början av manuset
+  Om två svar av fem är korrekta, och således $r=2$
+  och $k=5$, är väntevärdet $E[X_i]=0.4$.
+\end{exempel}
+
+\section{Förväntad totalpoäng} \label{sect:test}
+
+När vi nu vet vilket poäng en enskild fråga förväntas komma att ge kan
+vi lösa uppgift~\ref{item:test} och beräkna den förväntade
+totalpoängen på ett prov. För detta syfte inför vi ännu en
+slumpvariabel 
+\begin{equation*}
+  Y=\sum_{i=1}^n X_i,
+\end{equation*}
+där $n$ är antalet frågor på provet. 
+\begin{uppgift}
+  Skriv med hjälp av ett summatecken ($\sum$) en ny ekvation som säger
+  % \cdots ger tre punkter för "och så vidare" i summor och produkter
+  att $Y_{\infty}$ är summan $X_1+X_2,+\cdots+X_\infty$, poängen på
+  ett prov med ett oändligt antal frågor. 
+\end{uppgift}
+Eftersom operatorn $E$ per definition är \emph{linjär}, dvs för alla
+$X$ och $Y$ är $E[X+Y]=E[X]+E[Y]$, så är väntevärdet 
+\begin{align*}  % flerradsekvation helt utan numrering
+  E[Y]    &= E\left(\sum_{i=1}^n X_i\right) \\
+    %  _{i=1} anger startvärde för summan, ^n anger stopvärdet
+    %  \left och \right används för att omgärdande paranteser ska
+    %  justeras i storlek, i detta fall bli större/högre
+            &= \sum_{i=1}^n E[X_i]
+\end{align*}
+\begin{uppgift}
+  Komplettera ekvationen ovan med två förenklingssteg mellan första
+  och sista raden enligt följande.
+  \begin{enumerate}
+    \item Lägg först till ett mellansteg där summan inom parantesen i
+      högerledet utvecklas medan $E$ står kvar utanför
+      paranteserna. Använd \verb|\cdots|. 
+    \item Lägg till ytterligare ett steg där parantererna tas bort och
+      $E$ distribueras in till summans termer.  
+  \end{enumerate}
+\end{uppgift}
+vilket, enligt ekvation~\ref{eq:oneq}, betyder att 
+\begin{equation*}                              % ekvation, ej numrerad
+  E[Y] = \boxed{\frac{rn}{k}} \label{eq:total} % \boxed = rama in
+\end{equation*}
+är svaret på uppgift~\ref{item:test}. % den andra uppgiftens nummer
+
+\begin{exempel}  % ännu ett exempel
+  Om vi tänker oss ett konkret fall med $n=30$ frågor som var och en
+  har $k=5$ svarsalternativ, varav exakt $r=2$ är korrekta, blir det
+  förväntade antalet poäng
+  \begin{align*}
+    E[Y] &= \frac{2\cdot 30}{5} \\ % \cdot ger multiplikationstecken
+    &= 12
+  \end{align*}
+  om man chansar på alla frågorna.
+\end{exempel}
+
+\begin{uppgift}
+  Lägg till ett exempel som beräknar den förväntade poängen i en
+  situation som den du skrev om i övningsuppgift~\ref{exuppgift}. 
+\end{uppgift}
+
+\begin{uppgift}
+  Lägg här till ett avslutande avsnitt med rubriken ''Tack'', som
+  skapas med kommandot \verb|\section|, i vilket
+  du namnger och tackar några lärare, t ex lärare i matematik, du
+  tidigare haft för att de hjälpt dig lära dig så mycket att du kunnat
+  göra uppgifterna i denna övning. 
+\end{uppgift}
+
+\begin{thebibliography}{99}    % börja en källförteckning
+  \bibitem{grimaldi}           % en källa med nyckelord
+    Ralph P. Grimaldi, \emph{Discrete and combinatorial mathematics -
+    An Applied Introduction}. Addison-Wesley, 2003. 
+\end{thebibliography}
+
+\end{document} % sluta att typsätta, dvs text efter denna rad kommer
+               % att ignoreras
+
