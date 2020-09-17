@@ -50,9 +50,9 @@ n = int(input("Skriv en siffra:"))
 nreturn = n                                          #nreturn sätts samma som n men nreturn förblir oförändrat i syfte att ha kvar det orginella talet av n.
 #Kör när tvarsumman() funktionerna är bortkommenterade.
 #bounce(n,nreturn)
-#bounce2(n, nreturn)                                 #Skickar med n och nreturn som är ett fast tal i syfte att ha något  att jämföra med och gå tillaka till. 
+bounce2(n, nreturn)                                 #Skickar med n och nreturn som är ett fast tal i syfte att ha något  att jämföra med och gå tillaka till. 
 
 
 #Kör när bounce funktionerna är bortkommenterade. Funktionerna innehåller samma input värde. Skriver man ett långt tal och anroppar bounce tar det väldigt lång tid.
-tvarsumman2(n)
+#tvarsumman2(n)
 #tvarsumman(n)
