@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage{showframe}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}	
+	\section{The Koch Snowflake}
+		The \emph{Koch snowflake}, one of the first fractals, is based on work by the Swedish mathematician Helge von Koch~\cite{koch}.
+		It is what we get if we start with an equilateral triangle\begin{figure}[h] \label{koch}
+			  \centering
+			  \includegraphics[width=10cm]{snowflake.jpg}
+			  \caption{The initial equilateral triangle and the refinement of the Koch snowflake after
+				     one, two, and three iterations.}
+			\end{figure}		
+			and repeat the following an infinite number of times:
+			\begin{quote}
+				 \textit{Divide all line segments into three segments of equal length. Then draw, for
+				          	   each middle line segment, an equilateral triangle that has the middle segment
+					   as its base and points outward. Finally, remove all middle segments.}
+			\end{quote}
+		Figure \ref{koch} shows the first iterations in the construction.\marginpar{(Original)}
+	\subsection{Two porperties}
+	\begin{theorem}
+	 	\textit{The Koch snowflake has infinite length.}
+	\end{theorem}
+	\begin{proof}
+		Let $\Delta$  denote a triangle, with side length \textit{s}, on which we base the construction 
+		of~a~snowflake. Let $N_i$ denote the number of line segments, and  $L_i$ the length of the
+		segments, in iteration $i$ of the construction. Then    	
+		\begin{displaymath}
+			  N_n =
+			    \begin{cases}
+			      3             & \text{if $n=0$ (i.e.\ before any iterations), and} \\
+			     4 N_{n-1}		& \text{otherwise,}
+			    \end{cases}
+		\end{displaymath}
+		which solves to 
+		\begin{equation}
+		 	\label{eq:1}
+		  	 N_n=3\cdot 4^n,
+		\end{equation}
+		while  
+		\begin{equation}
+		  \label{eq:5}
+		   L_n=\frac{L_{n-1}}{3}=\frac{L_{n-2}}{3^2}=\frac{L_{n-3}}{3^3}=\ldots=\frac{L_0}{3^n}=\frac{s}{3^n}.
+		\end{equation}
+		From Eqs.~\ref{eq:1} and \ref{eq:5}, the total length 
+		\begin{displaymath} 
+			  N_nL_n=3\cdot4^n\frac{s}{3^n}=3s\frac{4^n}{3^n}=3s\left(\frac{4}{3}\right)^n.
+		\end{displaymath}	
+		Since 4/3 $>$ 1, it follows that $ N_{n}L_{n}$ tends to infinity as n $\to \infty$, i.e. the Koch snowflake has infinite length.
+	\end{proof}
+	\begin{theorem}
+	The Koch snowflake has finite area.
+		\begin{proof}
+			In an iteration, a triangle is added on each line segment of the previous iteration.
+			So, in iteration \textit{n}, the number of new triangles $T_n=N_{n-1}$, which, by
+			Eq.~\ref{eq:1}, can be simplified to 
+			  \begin{equation}
+			   	\label{eq:2}
+			   	T_n =\frac{3}{4} \cdot 4^n .
+			  \end{equation}
+			   The area $a_n$ of each such triangle, with the exception of the area
+			 \begin{displaymath}
+				a_0=\frac{\sqrt{3}}{4}s^2
+			 \end{displaymath}
+			 of $\Delta$, the initial equilateral triangle, is one ninth of the area of a triangle added in iteration
+			 \textit{n}$- 1$, or				
+			\begin{equation}
+				\label{eq:3}
+				a_n=\frac{a_{n-1}}{9}=\frac{a_{n-2}}{9^2}=\ldots=\frac{a_{1}}{9^{n-1}}=\frac{a_{0}}{9^n}
+			 \end{equation}
+			 This means that in iteration \textit{n}, by Eqs.~\ref{eq:2} and \ref{eq:3}, the area of all added triangles 
+			 \begin{displaymath}
+				b_n=T_ {n}a_{n}=\left(\frac{3}{4}\cdot4^n\right)\left(\frac{a_0}{9^n}\right)=\frac{3a_0}{4}\left(\frac{4}{9}\right)^n.
+			 \end{displaymath}\marginpar{(Original)}
+			   All in all, after iteration \textit{n}, the total area
+			  \begin{align*}
+			           A_n &= a_0 + \sum_{k=1}^n b_k \\
+			           &=a_0\left(1+\frac{3}{4}\sum_{k=1}^n\left(\frac{4}{9}\right)^k \right) \\
+				&=a_0\left(1+\frac{1}{3}\sum_{k=0}^{n-1}\left(\frac{4}{9}\right)^k \right) \\
+				&=a_0\left(1+\frac{3}{5}\left(1-\left(\frac{4}{9}\right)^n\right)\right)\\
+				&=\frac{a_0}{5}\left(8-3\left(\frac{4}{9}\right)^n \right).
+			   \end{align*}
+			  Now, since
+			\begin{displaymath}
+			   \lim_{n \to \infty}3\left(\frac{4}{9}\right)^n=0,
+			\end{displaymath}
+			 it follows that $\lim_{n \to \infty}A_n=8a_0/5$, i.e.\ the Koch snowflake has finite area.  
+		\end{proof}
+	\end{theorem}
+	
+	
+	\begin{thebibliography}{99}
+	  \bibitem{koch} Helge von Koch. 
+	    \emph{Sur une courbe continue sans tangente, obtenue par une
+	    construction géométrique élémentaire.}, 
+	    Arkiv för matematik, astronomi och fysik, 
+	    Kungliga Vetenskapsakademien. 
+	    \textbf{1}, 681-702, 1904.
+	\end{thebibliography}
+\end{document}

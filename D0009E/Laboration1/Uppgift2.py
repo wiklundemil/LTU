@@ -27,19 +27,26 @@ def tidblanda(antal):
     intantal = int(antal)
     tid_blanda = ((intantal*1) + 10)
     print("Det tar att så här lång tid att blanda din smet:", tid_blanda,"minuter.")
-
+    return tid_blanda
 
 
 def tidgrada(antal):
     intantal = int(antal)
     tid_grada = ((intantal*3) + 30)
     print("Det tar att så här lång tid att grädda din kaka:", tid_grada,"minuter.")
+    return tid_grada
 
 #---Här börjar programmet där man ser det i terminalen.---#
 antal_personer = input("Hur många personer vill du baka för?")          #Här bestämms hur många personer som man vill baka för. 
-recept_sockerkaka(antal_personer)
-print()
-tidblanda(antal_personer)
-tidgrada(antal_personer)
+antal = int(antal_personer)
 
+recept_sockerkaka(antal)
+print()
+
+tidblanda(antal)                                                        #Kör funktionen tidblanda och använder antal i parantesen.
+tidgrada(antal)                                                         #Kör funktionen tidgrada och använder antal i parantesen.
+print()
+
+tid_totalt = tidblanda.tid_blanda + tidgrada.tid_grada                  #Ska summera variabeln tid_blanda från tidblanda funktionen med tid_grada från tidgrada funktionen.
+print("Det tar totalt så här lång tid att göra receptet",tid_totalt,"minuter.")
 
