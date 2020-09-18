@@ -57,15 +57,15 @@ function helperFunction(sliderId, outputElementId) {
 /* Outputs the momentary game state. */
 
 function writeGameState() {
-	document.getElementById("year").innerHTML = "Rapport för år: " + gameState.year;
-	document.getElementById("starved").innerHTML = "Dog av Hunger: "  + gameState.starved;
-	document.getElementById("newcomers").innerHTML = "Ny befolkning: " + gameState.newcomers;
-	document.getElementById("population").innerHTML = "Befolkning: " + gameState.population;
-	document.getElementById("acres").innerHTML = "Mark: " + gameState.acres;
-	document.getElementById("bushels").innerHTML = "Valuta: " + gameState.bushels;
-	document.getElementById("harvest").innerHTML = "Skörd: " + gameState.harvest;
-	document.getElementById("rats").innerHTML = "Råttor: " + gameState.rats;
-	document.getElementById("price").innerHTML = "Pris: " + gameState.price;
+	document.getElementById("year").innerHTML = "The report for year: " + gameState.year;
+	document.getElementById("starved").innerHTML = "Starved: " + gameState.starved;
+	document.getElementById("newcomers").innerHTML = "Newcomers: " + gameState.newcomers;
+	document.getElementById("population").innerHTML = "Population: " + gameState.population;
+	document.getElementById("acres").innerHTML = "Acres: " + gameState.acres;
+	document.getElementById("bushels").innerHTML = "Bushels: " + gameState.bushels;
+	document.getElementById("harvest").innerHTML = "Harvest: " + gameState.harvest;
+	document.getElementById("rats").innerHTML = "Rats: " + gameState.rats;
+	document.getElementById("price").innerHTML = "Price: " + gameState.price;
 
 	updateSliderValueOutput("sliderAcrestosellbuy", "outputAcrestosellbuy");
 	updateSliderValueOutput("sliderFeedpeople", "outputFeedpeople");
@@ -324,7 +324,7 @@ function tooManyPeopleStarved() {
 
 function finishTurn() {
 	if (plague()) {
-		alert("Ånej pesten har kommit till din stad!\n" + "Halva din befolkning dog.");
+		alert("A horrible plague occured!\n" + "Half of your population died.");
 		gameState.population = Math.floor(gameState.population / 2);
 	}
 	gameState.starved = calculateStarvedPeople();
@@ -362,12 +362,12 @@ function finishTurn() {
 
 		writeGameState();
 	} else if (tooManyPeopleStarved()) {
-		alert("Över 45% av din befolkning har dött av svält!\n" + "Du har fått sparken.\n" + "Försök igen.");
+		alert("You have starved over 45% of the population!\n" + "You have been kicked out of office.\n" + "Try again.");
 		gameStart();
 	} else {
 		var averagePeopleStarved = Math.floor(gameState.totalStarved / 10);
 		var acrePerPerson = Math.floor(gameState.acres / gameState.population);
-		alert("Prestanda\n" + "Genomsnitttlig befolkning som dött av hunger per år: " + averagePeopleStarved + "\n" + "Befolkning: " + gameState.population + "\n" + "Mark per person: " + acrePerPerson);
+		alert("Overall performance\n" + "Average people starved per year: " + averagePeopleStarved + "\n" + "Population: " + gameState.population + "\n" + "Acres per person: " + acrePerPerson);
 		gameStart();
 	}
 }
