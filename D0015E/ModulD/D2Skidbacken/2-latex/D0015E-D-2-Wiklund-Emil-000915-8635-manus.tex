@@ -82,7 +82,11 @@
 \subsection{Derivata och lutning}
 
 
-Dokumentet nämner termen \emph{derivata} och ordet \emph{lutning} och då är det viktigt att den som läser detta kan förstå innebörden av dessa. Dessa är kopplade till varandra och när termen \emph{derivata }nämns menar man på \emph{lutningen}. \emph{Derivatan} eller \emph{lutningen} tyder på förändringshastigheten i en viss tidpunkt. Den kända formeln för \emph{derivatan}, även kallad \emph{derivatans definition}: 
+Dokumentet nämner termen \emph{derivata} och ordet \emph{lutning} och då är det viktigt
+att den som läser detta kan förstå innebörden av dessa. Dessa är kopplade till varandra och
+när termen \emph{derivata }nämns menar man på \emph{lutningen}. \emph{Derivatan} eller
+\emph{lutningen} tyder på förändringshastigheten i en viss tidpunkt. Den kända formeln för
+\emph{derivatan}, även kallad \emph{derivatans definition}: 
 %
 \begin{align*}
   f'(x)=\frac{f(a+h)-f(a)}{h}
@@ -97,12 +101,13 @@ Fomeln menar på att \emph{lutningen} för en funktion, bestäms genom att låta
 
 
 Uppgiftens lösande sker på följande sätt:
+%
 \begin{quote} 
   Bestäm backens lutning för $x = 0.8$.
 \end{quote}
 %
-\emph{Lösning:} Derivera $y=0.5e^{-x^2}$ för att få ut funktionen för lutningen, funktionen för derivatan ser ut: $y'=xe^{-x^2}$
-%
+\emph{Lösning:} Derivera $y=0.5e^{-x^2}$ för att få ut funktionen för lutningen,
+funktionen för derivatan ser ut: $y'=xe^{-x^2}$
 Därefter sätter vi in värdet $x=0.8$ i funktionen för lutningen
 %
 \begin{align*}
@@ -124,11 +129,44 @@ Insättningen av $0.8$ ger lutningen värdet $\approx(-0.42)$.Vilket är svaret 
 \label{sec:uppg2}
 
 
-Följduppgiften handlar om att leta efter det värde på $x$ i en punkt där backen är som brantast.
+Uppgiftens lösande sker på följande sätt:
+%
+\begin{quote}
+  Ställ upp en ekvation för bestämning av $x$-värdet i den punkt där backar med en sådan
+  banprofil är brantast.
+\end{quote}
+%
+\emph{Lösning:} Det uppgiften frågar efter är $x$-värdet i den punkten där backen är
+ som brantast.
+%
+\begin{align*}
+  &y=0.5\cdot e^{-ax^2}\\
+  &y'=-a\cdot e^{-ax^2}\\
+\end{align*}
+%
+ Vi vet att backens \emph{lutning} är som störst där $y'$ är störst. Det vill säga 
+där $y''$ är lika med~0. Vi ställer upp ekvationen och deriverar igen, för att
+därefter använda oss utav kedjeregeln.
+%
+\begin{align*}
+  &y'=-a\cdot e^{-ax^2}\\
+  &f(x)=-ax & f'=-a\\
+  &g(x)=e^{-ax^2} & g'=-2ax\cdot e^{e-ax^2}\\
+  %Få det att se ut som på pappret i anteckningsblocket. Eler på ett annat sätt som ser bättre eller lika bra ut.
+  &y''=-a\cdot e^{-ax^2}+2a^2x^2\cdot e^{-ax^2}=a\cdot e^{-ax^2}\cdot \left(2ax^2-1\right)\\
+  &a\cdot e^{-ax^2}>0 | 2ax^2-1 = 0\\
+  &x=\sqrt{\frac{1}{2a}}   
+\end{align*}
+
+
 \section{Och ännu nästa problem...}
 \label{sec:uppgN}
 
 
+\begin{displaymath}
+  a=\frac{1}{2x^2}=\frac{1}{2}=0.5
+\end{displaymath}
+\emph{Svar:} $a=0.5$
 \section{Diskussion [och slutsatser]}
 \label{sec:disk}
 
