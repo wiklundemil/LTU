@@ -1,0 +1,727 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+\usepackage[left]{lineno}
+\usepackage{mdframed}
+\usepackage{listings}
+%\usepackage{xcolor}
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  keepspaces=true,
+  escapeinside=||,
+  frame = single
+}
+\lstset{literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+
+
+\title{Förbättring av \LaTeX-manus läsbarhet}
+%
+\author{Håkan Jonsson\thanks{email: \texttt{hj@ltu.se}. Detta är
+      kursmaterial i kursen D0015E Datateknik och ingenjörsvetenskap.} \\  
+        ~ \\
+        Luleå tekniska universitet \\ 
+        971 87 Luleå, Sverige}
+%          
+\date{\today}
+
+
+\begin{document}
+
+
+\maketitle
+
+
+\begin{abstract}
+  \LaTeX-manus ska vara lätta att läsa och förstå. Tre sätt att som
+  författare uppnå detta på är a) indentering, b) radbrytning och c)
+  justering av raderna i vertikal- och horisontalled.
+
+  
+  I detta dokument ger vi några exempel på användning av
+  dessa sätt, som hjälp då \LaTeX\ ska användas för att skriva
+  rapporter och reflektioner. 
+\end{abstract}
+
+
+\section{Inledning}
+
+
+Denna rapport går igenom olika sätt att förbättra läsbarheten hos ett
+\LaTeX-manus. De primära sättet är indentering, radbrytning och
+justering i både vertikal- som horisontalled.
+
+
+\section{Konsekvent indentering}
+
+
+Kod ska vara konsekvent indenterad. Med indentering menas att kod
+förskjuts in på raden så det klarare framgår vad som logiskt sitter
+ihop. Det typiska är att det som finns inne i en omgivning indenteras
+i förhållande till de \texttt{begin}- och \texttt{end}-deklarationer
+som startar och avslutar omgivningen. Istället för att skriva
+%
+\begin{verbatim}
+\begin{align*} f(x) &= x^4 + x^2 + 1 \\ g(x) &= x^5 + x^3 + x \end{align*}
+\end{verbatim}
+%
+på en enda rad eller
+%
+\begin{verbatim}
+\begin{align*}
+f(x) &= x^4 + x^2 + 1 \\
+g(x) &= x^5 + x^3 + x
+\end{align*}
+\end{verbatim}
+%
+på 4 rader som alla börjar ytterst till vänster så skriver vi
+%
+\begin{verbatim}
+\begin{align*}
+        f(x) &= x^4 + x^2 + 1 \\
+        g(x) &= x^5 + x^3 + x
+\end{align*}
+\end{verbatim}
+%
+dvs visar tydligt att de två funktionerna $f$ och $g$ tillhör
+\texttt{align*}-omgivningen genom att indentera dem 8
+steg/mellanslag. 
+
+Storleken på indenteringen, antalet steg, ska vara densamma i hela
+manuset och även då indentering görs av redan indenterat (omgivningar
+i omgivningar). Vanliga storlekar är 2, 4 och 8 (som ovan) men det går att
+använda vilken som helst bara man är konsekvent. En större
+indentering kan ge bättre läsbarhet men förbrukar också mer av
+utrymmet på raden. Och om det finns mycket goda skäl kan indenteringen
+undantagsvis skilja i storlek på isolerade ställen i manuset, utan att
+för den skull bryta huvudregeln. Här är
+ett annat exempel på indentering, där storleken också
+är 8 steg.
+%
+\begin{lstlisting}
+Från förutsättningarna gäller att
+\begin{displaymath}
+        g(x) = \sin x + \cos x. 
+\end{displaymath}
+Eftersom $a(x) = g(h(x))$, och 
+\begin{displaymath}
+        h(x) = x^3,
+\end{displaymath}
+blir således 
+\begin{displaymath}
+        a(x) = \sin x^3 + \cos x^3.
+\end{displaymath}
+vilket stämmer med slutsatserna i förra kapitlet.
+\end{lstlisting}
+%
+Det viktiga med indenteringen är att den ska klart och tydligt visa
+vad som ingår i vad. Jämför med hur det blir utan indentering. 
+%
+\begin{lstlisting}
+Från förutsättningarna gäller att
+\begin{displaymath}
+g(x) = \sin x + \cos x. 
+\end{displaymath}
+Eftersom $a(x) = g(h(x))$, och 
+\begin{displaymath}
+h(x) = x^3,
+\end{displaymath}
+blir således 
+\begin{displaymath}
+a(x) = \sin x^3 + \cos x^3,
+\end{displaymath}
+vilket stämmer med slutsatserna i förra kapitlet.
+\end{lstlisting}
+%
+Här börjar raderna flyta samman och det är inte lika lätt att se
+skillnaden mellan text, formler och kommandon/omgivningar. 
+
+
+\section{Radbrytning och indentering}
+
+
+Den indenterade koden från förra exemplet kan ytterligare förbättras
+genom radbrytning av formler och text så viktiga delar skiljs ut och
+visas upp.  
+%
+\begin{lstlisting}
+Från förutsättningarna gäller att
+\begin{displaymath}
+        g(x) = \sin x + 
+               \cos x. 
+\end{displaymath}
+Eftersom 
+        $a(x) = g(h(x))$, 
+och 
+\begin{displaymath}
+        h(x) = x^3,
+\end{displaymath}
+blir således 
+\begin{displaymath}
+        a(x) = \sin x^3 + 
+               \cos x^3.
+\end{displaymath}
+vilket stämmer med slutsatserna i förra kapitlet.
+\end{lstlisting}
+%
+Nu framgår allt ännu tydligare. Indenteringen är inte helt konsekvent,
+för raderna med \verb|\cos| är mer indenterade än övriga indenterade
+rader, men ändamålsenlig eftersom den större indenteringen justerar
+termerna så man ser att de sitter ihop. Eftersom det finns ett sådant
+starkt vägande skäl är inkonsekvensen i indentering OK. 
+
+
+Obs! Hur koden skrivs i manuset behöver inte -- ska inte! -- slaviskt följa
+hur det typsatta resultatet blir. Titta t ex på hur 
+    \verb|$a(x) = g(h(x))$| (på rad 7 i exemplet) 
+satts på en egen indenterad rad, för att visas upp \emph{i manuset}. 
+Sen kommer det i alla fall att typsättas \emph{löpande mitt i texten}. 
+
+
+\section{Justering med tomrader}
+
+
+Tomrader separerar visuellt i vertikalled, vilket också kan öka
+läsbarheten. För att få in en tomrad i koden där såna egentligen inte
+går att ha med kan vi använda rader som endast har ett procenttecken
+först på raden. Vi exemplifierar detta genom att lägga in såna rader i
+exempelkoden från föregående avsnitt.
+%
+\begin{lstlisting}
+Från förutsättningarna gäller att
+%
+\begin{displaymath}
+        g(x) = \sin x + 
+               \cos x. 
+\end{displaymath}
+%
+Eftersom 
+        $a(x) = g(h(x))$, 
+och 
+%
+\begin{displaymath}
+        h(x) = x^3,
+\end{displaymath}
+%
+blir således 
+%
+\begin{displaymath}
+        a(x) = \sin x^3 + 
+               \cos x^3.
+\end{displaymath}
+%
+vilket stämmer med slutsatserna i förra kapitlet.
+\end{lstlisting}
+%
+Detta glesar ut vertikalt, så framförallt alla omgivningar syns tydligare.
+
+
+Kanske kan man lockas använda helt tomma rader för att separera i
+vertikalled? Tomrad, såväl en som godtyckligt många efter varandra,
+är dock ett ''kommando'' som betyder nytt stycke i \LaTeX. Tomrad kan
+därför inte användas istället för procentrad.  
+
+
+För att vara mycket tydliga var i texten nya stycken börjar använder
+vi alltid två (2) timrader efter varandra. Detsamma gör vi före och
+efter avsnittsrubriker. Om det ska vara nytt stycke i texten före
+meningen som inleds med \texttt{Eftersom} skriver vi
+%
+\begin{lstlisting}
+...
+               \cos x. 
+\end{displaymath}
+
+
+Eftersom 
+        $a(x) = g(h(x))$, 
+och 
+%
+\begin{displaymath}
+...
+\end{lstlisting}
+%
+Så länge vi är någorlunda konsekventa och förbättrar läsbarheten kan
+vi variera relativt fritt hur vi skriver vårt manus med vertikala
+justeringar och mellanrum. 
+
+
+\subsection{Radbrytning och separering}
+
+
+Här utgår vi nu från koden
+%
+\begin{lstlisting}
+\begin{displaymath}
+  f(x)=x^3+2x^2+x+x+2x^2+x^3=2x^3+2x^2+4x=2x(x^2+2x+1)=2x(x+1)^2.
+\end{displaymath}
+\end{lstlisting}
+%
+som ger
+\begin{displaymath}
+  f(x)=x^3+2x^2+x+x+2x^2+x^3=2x^3+4x^2+2x=2x(x^2+2x+1)=2x(x+1)^2.
+\end{displaymath}
+%
+Eller gör den? Koden består av flera likadana delar och är lite
+svårläst, eller hur,  så låt oss se hur vi med enkla medel kan öka
+dess läsbarhet.  
+
+
+I matematikomgivningar som \texttt{displaymath}, \texttt{equation}
+och \texttt{align} spelar, precis som i vanlig löptext, radbrytning
+ingen roll för \LaTeX. Det är ordningen mellan manusets delar som de
+kommer när vi läser manuset uppifrån och ner, och varje rad från
+vänster till höger, som har betydelse. Vi kan därför bryta raderna så
+koden ändras till 
+%
+\begin{lstlisting}
+\begin{displaymath}
+  f(x)=x^3+2x^2+x+x+2x^2+x^3
+      =2x^3+4x^2+2x
+      =2x(x^2+2x+1)
+      =2x(x+1)^2.
+\end{displaymath}
+\end{lstlisting}
+%
+och fortfarande få exakt samma utseende på det typsatta resultatet. De
+kortare (separata) manusraderna är enklare att läsa än när de alla
+bildade en enda lång rad. Med separerande mellanslag inne i raderna kan vi
+förbättra läsbarheten ytterligare.  
+%
+\begin{lstlisting}
+\begin{displaymath}
+  f(x) = x^3  + 2x^2 + x  + x + 2x^2 + x^3
+       = 2x^3 + 4x^2 + 2x
+       = 2x(x^2 + 2x + 1)
+       = 2x(x + 1)^2.
+\end{displaymath}
+\end{lstlisting}
+%
+Här är termerna och plustecknen på de två första formelraderna justerade i
+horisontalled så de ska hamna i linje vertikalt. Även efterföljande
+formelrader är utglesade för ökad läsbarhet. Att detta fungerar
+beror på att \LaTeX-systemet (i princip) inte heller bryr sig om extra
+mellanslag på en rad. Även denna kod ger samma typsatta rad som resultat. 
+
+
+Notera att det till vänster om det tredje plustecknet från slutet av
+första raden finns ett extra, andra, mellanslag som om det skulle finnas ett
+motsvarande plustecken på raden under att justera mot. Anledningen är
+ett försök att visuellt ytterligare separera ut detta plustecken från
+termen \texttt{2x} på andra raden. (Och \emph{om} det hade funnits ett
+plustecken också på andra raden och efter \texttt{2x} så hade vi
+förstås justerat plustecknet mot det.) Naturligtvis skulle vi kunna
+justera alla fyra raders innehåll mot varandra. 
+%
+\begin{lstlisting}
+\begin{displaymath}
+  f(x) = x^3    + 2x^2 + x  + x + 2x^2 + x^3
+       = 2x^3   + 4x^2 + 2x
+       = 2x(x^2 + 2x   + 1)
+       = 2x(x   + 1)^2.
+\end{displaymath}
+\end{lstlisting}
+%
+Återigen påverkar detta inte typsättningen men väl läsbarheten.
+
+
+Om extra mellanslag som ovan är lämpliga eller ej är svårt att säga
+generellt. Men det ökar i regel läsbarheten att justera termer och
+annat mot varandra, och att skapa tomma (visuella) 
+kolumner i långa uttryck som sträcker sig över flera rader. Utan det
+extra mellanslaget får vi istället 
+%
+\begin{lstlisting}
+\begin{displaymath}
+  f(x) = x^3  + 2x^2 + x + x + 2x^2 + x^3
+       = 2x^3 + 4x^2 + 2x
+       ...
+\end{displaymath}
+\end{lstlisting}
+%
+vilket också går bra, även om den tomma kolumnen försvann. 
+
+
+Ovan är termerna vänsterjusterade. Vi kan också välja att justera dem
+åt höger. 
+\begin{lstlisting}
+\begin{displaymath}
+  f(x) =  x^3 + 2x^2 +  x + x + 2x^2 + x^3
+       = 2x^3 + 4x^2 + 2x
+       ...
+\end{displaymath}
+\end{lstlisting}
+%
+Skillnaden syns t ex på första raden, där termerna är fortsatt läsbara
+(eller kanske t~o~m snäppet lättare att läsa -- en smaksak). Vi har nu
+också fått tillbaka den försvunna kolumnen.
+
+
+Att som ovan stuva om i kod för att öka dess läsbarhet kan också ge
+idéer till hur det typsatta resultatets läsbarhet kan förbättras. I
+fallet ovan vore ett alternativ att dela upp vid likamedtecknen och
+rada upp delarna med \texttt{align*}. 
+%
+\begin{lstlisting}
+\begin{align*}
+  f(x) &= x^3   + 2x^2  + x   +  x  +  2x^2  +  x^3  \\
+       &= 2x^3  + 4x^2  + 2x                   \\
+       &= 2x (x^2 + 2x  + 1)                   \\
+       &= 2x (x + 1)^2.
+\end{align*}
+\end{lstlisting}
+%
+Som synes måste inte alla rader vara justerade mot varandra; olikheter
+måste få finnas kvar (och slutraderna är på annan form än de två
+första som dock går bra att justera mot varandra).
+
+Tanken var inte att inkludera en flerradsekvation i texten. Men om vi
+jämför blir resultatet tydligare med flerradsekvation än utan, och som
+väntat betydligt lättare att läsa och förstå.
+%
+\begin{align*}
+  f(x) &= x^3  + 2x^2 + x + x + 2x^2 + x^3 \\
+       &= 2x^3 + 4x^2 + 2x \\
+       &= 2x(x^2 + 2x + 1) \\
+       &= 2x(x + 1)^2. 
+\end{align*}
+%
+För jämförelsens skull upprepar vi hur det första typsatta resultatet
+ser ut. 
+\begin{displaymath}
+  f(x)=x^3+2x^2+x+x+2x^2+x^3
+  =2x^3+4x^2+2x=2x(x^2+2x+1)=2x(x+1)^2.
+\end{displaymath}
+%
+Radbrytning och horisontell justering kan alltså inte bara öka ett
+\LaTeX-manus läsbarhet utan även ge idéer om hur läsbarheten hos det
+färdiga resultatet kan förbättras. 
+
+
+Hur var det förresten nu med koden i början av hela detta
+exempel som påstods ge den typsatta raden i början..? Var den
+korrekt..? Nej, den innehåller ett medvetet fel(!) Den som noga
+granskade koden upptäckte en bit in att en 2:a och en 4:a var
+omkastade jämfört med hur de förekommer i det typsatta
+resultatet. Undvik sån svårläst kod. 
+
+
+\section{Radbrytning i vanlig text}
+
+
+Vi ska nu se hur läsbarheten hos kod som beskriver ett litet
+textstycke kan förbättras med indentering, radbrytning och justering 
+vertikalt och horisontellt. Vi utgår från följande kod.  
+%
+\begin{lstlisting}
+Vi ska nu se hur läsbarheten hos kod som beskriver ett litet
+textstycke kan förbättras med indentering, radbrytning och justering 
+vertikalt och horisontellt. Vi utgår från följande kod. 
+\end{lstlisting}
+%
+Först ser vi att det finns en uppräkning i texten. Även om den inte
+ska typsättas som en lista hindrar inget att vi, i manuset, skriver
+den som en lista. 
+%
+\begin{lstlisting}
+Vi ska nu se hur läsbarheten hos kod som beskriver ett litet
+textstycke kan förbättras med 
+    indentering, 
+    radbrytning och 
+    justering vertikalt och horisontellt. 
+Vi utgår från följande kod. 
+\end{lstlisting}
+%
+Detta lyfter fram de tre uppräknade sätten. Däremot påverkar det inte
+typsättningen. Och vill vi vara ännu tydligare i manuset kan vi också
+separera ut i vertikalled. 
+
+%
+\begin{lstlisting}
+Vi ska nu se hur läsbarheten hos kod som beskriver ett litet
+textstycke kan förbättras med 
+%
+    indentering, 
+%
+    radbrytning och 
+%
+    justering vertikalt och horisontellt. 
+%
+Vi utgår från följande kod. 
+\end{lstlisting}
+%
+Det blir ändå precis samma typsatta resultat.
+
+
+\section{Ett avslutande kombinationsexempel}
+
+
+Vi ska nu titta närmare på ett blandat exempel. Här är version 1 av
+manuset:
+%
+\label{page:v1}
+\begin{lstlisting} 
+Med våra värden $a_2=-25.35$, $a_3=155.925$ och $a_4=-250$
+blir \begin{align*} p&=155.925-(-25.35)^2/3 \\ &= -58.2825 
+\end{align*} och \begin{align*} q&=-291,625+2(-25-35)^3/27-
+18(-25.35)\cdot 155.925/27\\ &=-180.761, \end{align*} I uppgiften är
+vidare givet att $x=2$. Detta insatt i basekvationen ger oss volymen
+$V(2) = 4\cdot 2^3 -101.4\cdot 2^2 + 623.7\cdot 2 = 32 - 405.6 +
+1247.4= 873.8 ~\text{cm}^3.$ Detta är ungefär $0.87$~liter. 
+\end{lstlisting}
+%
+Detta är extremt svårläst! Usch! Men \LaTeX-systemet har inga problem med det,
+utan läser bara rad för rad och vad som står på raderna.
+Egentligen är ovanstående ''gröt'' detsamma som nedanstående,
+något mera lättlästa, och indenterade, manus som vi istället utgår
+från i resten av avsnittet.  
+%
+\begin{lstlisting}
+Med våra värden $a_2=-25.35$, $a_3=155.925$ och $a_4=-250$ blir
+\begin{align*}
+    p&=155.925-(-25.35)^2/3 \\
+    &= -58.2825
+\end{align*}
+och
+\begin{align*}
+    q&=-291,625+2(-25-35)^3/27-18(-25.35)\cdot 155.925/27\\
+    &=-180.761,
+\end{align*}
+I uppgiften är vidare givet att $x=2$. Detta insatt i basekvationen ger
+oss volymen $V(2) = 4\cdot 2^3 -101.4\cdot 2^2 + 623.7\cdot 2 = 32 -
+405.6 + 1247.4= 873.8 ~\text{cm}^3.$ Detta är ungefär $0.87$~liter.
+\end{lstlisting}
+%
+Här kan man i alla fall enklare förstå vad för text det ska bli. Denna
+senare kod ger, liksom ''gröten'', följande typsatta
+resultat. (Observera att basekvationen som det refereras till inte är
+med i exempelkoden.)   
+%
+\begin{mdframed}
+  Med våra värden $a_2=-25.35$, $a_3=155.925$ och $a_4=-250$ blir
+  \begin{align*}
+    p&=155.925-(-25.35)^2/3 \\
+     &= -58.2825
+  \end{align*}
+  och
+  \begin{align*}
+    q&=-291,625+2(-25-35)^3/27-18(-25.35)\cdot 155.925/27\\
+     &=-180.761,
+  \end{align*}
+  I uppgiften är vidare givet att $x=2$. Detta insatt i basekvationen
+  ger oss volymen
+  $V(2) = 4\cdot 2^3 -101.4\cdot 2^2 + 623.7\cdot 2 = 32 - 405.6 +
+  1247.4= 873.8 ~\text{cm}^3.$ Detta är ungefär $0.87$~liter.
+\end{mdframed}
+
+
+Så, hur förbättrar vi manuset? Vi börjar med att radbryta uppräkningen
+på första raden och glesa ut.
+%
+\begin{lstlisting}
+Med våra värden 
+    $a_2 = -25.35$, 
+    $a_3 =  155.925$ och 
+    $a_4 = -250$ 
+blir
+\begin{align*}
+...
+\end{lstlisting}
+%
+Sen glesar vi ut matematiken i \texttt{align*}-omgivningarna och
+justerar termer. 
+%
+\begin{lstlisting} 
+...
+\begin{align*}
+    p &=   155.925 - (-25.35)^2 / 3 \\
+      &= - 58.2825
+\end{align*}
+och
+\begin{align*}
+    q &= -291,625 + 2(-25 - 35)^3/27 - 18(-25.35) \cdot 155.925 / 27 \\
+      &= -180.761,
+\end{align*}
+...
+\end{lstlisting}
+%
+En av kodraderna ovan är lång och lite svårläst, så vi radbryter den
+och justerar.
+%
+\begin{lstlisting} 
+...
+\begin{align*}
+    q &= - 291,625  
+         + 2(-25 - 35)^3 / 27 
+         - 18(-25.35) \cdot 155.925 / 27 \\
+      &= - 180.761,
+\end{align*}
+...
+\end{lstlisting}
+%
+Kvar är de avslutande tre raderna kod.
+%
+\begin{lstlisting}
+...
+I uppgiften är vidare givet att $x=2$. Detta insatt i basekvationen ger
+oss volymen $V(2) = 4\cdot 2^3 -101.4\cdot 2^2 + 623.7\cdot 2 = 32 -
+405.6 + 1247.4= 873.8 ~\text{cm}^3.$ Detta är ungefär $0.87$~liter.
+\end{lstlisting}
+Vi delar upp den, radbryter, indenterar, glesar och justerar (och separerar
+t~o~m med procentrader).
+%
+\begin{lstlisting}
+...
+I uppgiften är vidare givet att 
+%
+    $x = 2$. 
+%
+Detta insatt i basekvationen ger oss volymen 
+%
+    $V(2) = 4     \cdot 2^3 - 
+            101.4 \cdot 2^2 +
+            623.7 \cdot 2 
+%
+          = 32 - 
+            405.6 + 
+            1247.4
+%
+          = 873.8~\text{cm}^3.$ 
+%
+Detta är ungefär $0.87$~liter.
+\end{lstlisting}
+%
+In med några procentrader för att tydligare visa omgivningarna, och
+sen har vi ändrat hela manussnutten(!)
+%
+\label{page:vn} 
+\begin{lstlisting}
+Med våra värden 
+    $a_2 = -25.35$, 
+    $a_3 =  155.925$ och 
+    $a_4 = -250$ 
+blir
+%
+\begin{align*}
+    p &=   155.925 - (-25.35)^2 / 3 \\
+      &= - 58.2825
+\end{align*}
+%
+och
+%
+\begin{align*}
+    q &= - 291,625  
+         + 2(-25 - 35)^3 / 27 
+         - 18(-25.35) \cdot 155.925 / 27 \\
+      &= - 180.761,
+\end{align*}
+%
+I uppgiften är vidare givet att 
+%
+    $x = 2$. 
+%
+Detta insatt i basekvationen ger oss volymen 
+%
+    $V(2) = 4     \cdot 2^3 - 
+            101.4 \cdot 2^2 +
+            623.7 \cdot 2 
+%
+          = 32 - 
+            405.6 + 
+            1247.4
+%
+          = 873.8~\text{cm}^3.$ 
+%
+Detta är ungefär $0.87$~liter.
+\end{lstlisting}
+%
+Det går att på nytt gå igenom alla raderna och ytterligare justera och
+separera för ännu bättre läsbarhet, men denna första genomgång räcker
+redan långt. Vi typsätter nu denna omformulerade kod. 
+
+\begin{mdframed}
+Med våra värden 
+    $a_2 = -25.35$, 
+    $a_3 =  155.925$ och 
+    $a_4 = -250$ 
+blir
+%
+\begin{align*}
+    p &=   155.925 - (-25.35)^2 / 3 \\
+      &= - 58.2825
+\end{align*}
+%
+och
+%
+\begin{align*}
+    q &= - 291,625  
+         + 2(-25 - 35)^3 / 27 
+         - 18(-25.35) \cdot 155.925 / 27 \\
+      &= - 180.761,
+\end{align*}
+%
+I uppgiften är vidare givet att 
+%
+    $x = 2$. 
+%
+Detta insatt i basekvationen ger oss volymen 
+%
+    $V(2) = 4     \cdot 2^3 - 
+            101.4 \cdot 2^2 +
+            623.7 \cdot 2 
+%
+          = 32 - 
+            405.6 + 
+            1247.4
+%
+          = 873.8~\text{cm}^3.$ 
+%
+Detta är ungefär $0.87$~liter.
+\end{mdframed}
+%
+Detta är fortfarande exakt samma typsatta resultat som i början av
+detta avsnitt av rapporten. Vi har bara förbättrat kodens
+läsbarhet.
+
+
+\section{Diskussion}
+
+Det finns, som alla exempel i denna rapport visar, många olika sätt att förbättra
+ett manus läsbarhet på. Med små medel kan man dramatiskt göra ett
+manus mer läbegripligt och lättläst. Jämför t~ex det första (extrema)
+manuset (''gröten'') på sidan~\pageref{page:v1} med sista versionen på
+sidan~\pageref{page:vn}. 
+
+
+Det viktiga att ta med sig efter att ha läst detta dokument, och
+förutom de sätt som vi kan öka läsbarheten på, är att \emph{du} har en
+\emph{skyldighet} att skriva manus så att dina medförfattare tycker att de är
+läsbara. Och på samma sätt har var och en av dina medförfattare samma
+skyldighet mot dig och övriga. Användningen av verktyg som indentering,
+radbrytning samt justering i vertikal- och horisontalled måste vara
+sund.  
+
+
+Ska man samarbeta om att skriva ett \LaTeX-manus, eller ett
+datorprogram i största allmänhet, är det därför klokt att komma överens (i
+förväg) om hur man ska skriva. Detta brukar kallas
+\emph{kodningsstandard} och finns för de flesta riktiga
+programmeringsspråk. 
+%
+\end{document}
