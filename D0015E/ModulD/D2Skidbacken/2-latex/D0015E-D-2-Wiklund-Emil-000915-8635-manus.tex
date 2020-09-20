@@ -49,8 +49,6 @@
 
 % Ändra INTE nästa rad (aktiverar utskrift av radnummer)
 \linenumbers
-
-
 \maketitle
 
 
@@ -61,7 +59,7 @@
 %  Man ska efter att ha läst sammanfattning förstås vad dokumentet
 %  handlar om, även om man inte vet i detalj. 
 
-   
+  Hej jag är den plats det ska finnas en sammanfattning.
 \end{abstract}
 
 
@@ -79,24 +77,50 @@
 %Faktum är att det blir lite krystat att skriva en liten rapport om hur
 %man löser en uppgift som denna men vi gör det som en övning i \LaTeX. 
 
+
+Denna rapport går ut på att visa lösningar ur uppgiften \emph{skidbacken}.
+I uppgiften finns det tre stycken del-uppgifter vilket rapporten går igenom.
+Dessa handlar om begreppen \emph{derivata} och \emph{lutning}.
+Det uppgiften går ut på är hur man räknar ut \emph{derivatan} vid ett vist 
+tillfälle, del-uppgift ett går igenom backens \emph{lutning} i en viss punkt.
+Del-uppgift två går igenom lösandet av backens brantaste punkt den tredje 
+och sista del-uppgiften går igenom.....
+
+
 \subsection{Derivata och lutning}
 
 
-Dokumentet nämner termen \emph{derivata} och ordet \emph{lutning} och då är det viktigt
-att den som läser detta kan förstå innebörden av dessa. Dessa är kopplade till varandra och
-när termen \emph{derivata }nämns menar man på \emph{lutningen}. \emph{Derivatan} eller
-\emph{lutningen} tyder på förändringshastigheten i en viss tidpunkt. Den kända formeln för
-\emph{derivatan}, även kallad \emph{derivatans definition}: 
+Dokumentet nämner begreppet \emph{derivata} och \emph{lutning} och då är
+det viktigt att den som läser detta kan förstå innebörden av dessa. Dessa är 
+kopplade till varandra och när \emph{derivata} nämns menar man på 
+\emph{lutningen}. \emph{Derivatan} eller \emph{lutningen} tyder på 
+förändringshastighet i en viss tidpunkt.
+
+
+Om vi exempelvis har två olika punkter. Punkten $(x, f(x))$ och punkten 
+$(x+h, f(x+~h))$ kan man dra en linje mellan dessa, en \emph{sekant}
+mellan punkterna. Med \emph{sekant} menar man på medellutningen till 
+två punkter. I det här fallet punkterna $(x, f(x))$ och $(x+h, f(x+h))$. 
+Skulle man låta $h$  gå mot $0$ så kommer sekantens \emph{lutning} att
+tillslut övergå till en tangent. Då kan vi teckna ett utryck för sekantens 
+\emph{lutning}:
 %
 \begin{align*}
-  f'(x)=\frac{f(a+h)-f(a)}{h}
+  k=\frac{\Delta y}{\Delta x}=\frac{f(x+h)-f(x)}{h}
 \end{align*}
 %
-Fomeln menar på att \emph{lutningen} för en funktion, bestäms genom att låta 
+Om vi låter $h$ gå mot $0$
+%
+\begin{align*}
+  \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+\end{align*}
+%
+får vi tangentens \emph{lutning} genom att 
+räkna ut gränsvärdet i punkten $(x, f(x))$.
+%
 
 
-\newpage
-\section{En backes lutning}
+\section{Backens lutning}
 \label{sec:uppg1}
 
 
@@ -106,16 +130,15 @@ Uppgiftens lösande sker på följande sätt:
   Bestäm backens lutning för $x = 0.8$.
 \end{quote}
 %
-\emph{Lösning:} Derivera $y=0.5e^{-x^2}$ för att få ut funktionen för lutningen,
-funktionen för derivatan ser ut: $y'=xe^{-x^2}$
+\emph{Lösning:} Derivera $y=0.5e^{-x^2}$ för att få ut funktionen för 
+lutningen, funktionen för derivatan ser ut: $y'=xe^{-x^2}$
 Därefter sätter vi in värdet $x=0.8$ i funktionen för lutningen
 %
 \begin{align*}
-	y'(0.8)=0.8e^{-0.8^2}
+  y'(0.8)=0.8e^{-0.8^2}
 \end{align*}
-Insättningen av $0.8$ ger lutningen värdet $\approx(-0.42)$.Vilket är svaret på deluppgiften. 
-%
-%
+Insättningen av $0.8$ ger lutningen värdet $\approx(-0.42)$.Vilket är svaret
+på deluppgiften. 
 %
 % Den här raderna består helt av kommentarer som 
 % LaTeX inte bryr sig om. De betraktas inte heller 
@@ -124,7 +147,8 @@ Insättningen av $0.8$ ger lutningen värdet $\approx(-0.42)$.Vilket är svaret 
 % procenttecken på varje rad. På så sätt kan man få in 
 %"blankrader" i sitt manus utan att de ska markera 
 % nytt stycke. 
-%
+
+
 \section{Backens brantaste punkt}
 \label{sec:uppg2}
 
@@ -132,35 +156,40 @@ Insättningen av $0.8$ ger lutningen värdet $\approx(-0.42)$.Vilket är svaret 
 Uppgiftens lösande sker på följande sätt:
 %
 \begin{quote}
-  Ställ upp en ekvation för bestämning av $x$-värdet i den punkt där backar med en sådan
-  banprofil är brantast.
+  Ställ upp en ekvation för bestämning av $x$-värdet i den punkt där backar 
+  med en sådan banprofil är brantast.
 \end{quote}
 %
-\emph{Lösning:} Det uppgiften frågar efter är $x$-värdet i den punkten där backen är
- som brantast.
+\emph{Lösning:} Det uppgiften frågar efter är $x$-värdet i den punkten där 
+backen är som brantast. 
+
+
+Vi vet att backens \emph{lutning} är som störst 
+där $y'$ är störst. Det vill säga där $y''$ är lika med~0. Vi utgår från 
+funktionen $f=0.5e^{-x}$  och deriverar två gånger för att få ut funktionen 
+för $y''$
 %
 \begin{align*}
   &y=0.5\cdot e^{-ax^2}\\
   &y'=-a\cdot e^{-ax^2}\\
 \end{align*}
 %
- Vi vet att backens \emph{lutning} är som störst där $y'$ är störst. Det vill säga 
-där $y''$ är lika med~0. Vi ställer upp ekvationen och deriverar igen, för att
-därefter använda oss utav kedjeregeln.
-%
+Här väjer vi att dela upp funktionen i dess två faktorer i syfte att skapa
+ordning medans vi deriverar. 
 \begin{align*}
-  &y'=-a\cdot e^{-ax^2}\\
-  &f(x)=-ax & f'=-a\\
-  &g(x)=e^{-ax^2} & g'=-2ax\cdot e^{e-ax^2}\\
-  %Få det att se ut som på pappret i anteckningsblocket. Eler på ett annat sätt som ser bättre eller lika bra ut.
-  &y''=-a\cdot e^{-ax^2}+2a^2x^2\cdot e^{-ax^2}=a\cdot e^{-ax^2}\cdot \left(2ax^2-1\right)\\
-  &a\cdot e^{-ax^2}>0 | 2ax^2-1 = 0\\
-  &x=\sqrt{\frac{1}{2a}}   
+  &f(x)=-ax\\
+  &g(x)=e^{-ax^2}      
 \end{align*}
-
-
+Därefter deriverar vi
+\begin{align*}
+  &f'(x)=-a\\
+  &g'(x)=-2ax\cdot e^{-ax^2}      
+\end{align*}
+Tillsammans bildar de två funktionerna \emph{andraderivatan}. Vi fortsätter
+med att skriva ihop dessa igen och därefter faktorisera dessa
 \section{Och ännu nästa problem...}
 \label{sec:uppgN}
+
 
 
 \begin{displaymath}
