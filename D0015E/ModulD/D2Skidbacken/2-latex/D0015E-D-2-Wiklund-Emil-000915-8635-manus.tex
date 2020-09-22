@@ -29,8 +29,9 @@
 \patchBothAmsMathEnvironmentsForLineno{multline}%
 }
 
-
 % Ändra INTE nästa rad (gör så radnummer skrivs med fet stil)
+
+
 \renewcommand\linenumberfont{\normalfont\bfseries\small}
 
 
@@ -53,13 +54,24 @@
 
 
 \begin{abstract}
-%  I denna sammanfattning skriver jag helt kort ner vad resten av
-% dokumentet handlar om. Här kan det passa att beskriva vilken
-%  uppgiften/uppgifterna är och i stora drag hur den/de lösts.
-%  Man ska efter att ha läst sammanfattning förstås vad dokumentet
-%  handlar om, även om man inte vet i detalj. 
+Sammanfattningsvis handlar denna raport om vilken derivatra olika
+punkter på en graf erhåller samt lösandet av punkter. Rapporten ger
+lösningar på tre problem. 
 
-  Hej jag är den plats det ska finnas en sammanfattning.
+Det första problemen handlar om att beräkna derivatan i en punkt 
+med ett givet $x$-värde. Lösningen visar på ett korrekt sätt att lösa
+denna typ av uppgift som också ger oss ett exakt svar på vad för
+derivata den specifika punkten erhåller.
+
+Det andra problemet handlar om att beräkna den punkt där derivatan
+är som störst. Detta problem löser vi med hjälp av andraderivata 
+tillsammans med användning av kedjeregeln och kunskap angående 
+derivata samt andraderivata.
+
+Det tredje problemet handlar om beräkning av en okänd variabel.
+Den okända variabeln blir känd genom användning av ett givet värde 
+ur en punkt  samt användningen av ett utryck från en föregående 
+deluppgift.
 \end{abstract}
 
 
@@ -67,24 +79,14 @@
 \label{sec:introduktion}
 
 
-%Här kan man skriva massor om uppgiften, dess bakgrund, varför det är
-%viktiga att lösa det osv men för oss räcker det med att introducera
-%den. Ett bra sätt att skriva på är att sen behandla varje problem i
-%egna avsnitt, där man inleder med att beskriva problemet noga innan
-%man visar hur man kan lösa det.
-
-
-%Faktum är att det blir lite krystat att skriva en liten rapport om hur
-%man löser en uppgift som denna men vi gör det som en övning i \LaTeX. 
-
-
 Denna rapport går ut på att visa lösningar ur uppgiften \emph{skidbacken}.
-I uppgiften finns det tre stycken del-uppgifter vilket rapporten går igenom.
+I uppgiften finns det tre stycken deluppgifter vilket rapporten går igenom.
 Dessa handlar om begreppen \emph{derivata} och \emph{lutning}.
 Det uppgiften går ut på är hur man räknar ut \emph{derivatan} vid ett vist 
-tillfälle, del-uppgift ett går igenom backens \emph{lutning} i en viss punkt.
-Del-uppgift två går igenom lösandet av backens brantaste punkt den tredje 
-och sista del-uppgiften går igenom.....
+tillfälle. Deluppgift ett går igenom backens \emph{lutning} i en viss punkt.
+Deluppgift två går igenom lösandet av backens brantaste punkt den tredje 
+och sista deluppgiften går igenom lösandet av variabeln $a$.
+\newpage
 
 
 \subsection{Derivata och lutning}
@@ -117,7 +119,6 @@ Om vi låter $h$ gå mot $0$
 %
 får vi tangentens \emph{lutning} genom att 
 räkna ut gränsvärdet i punkten $(x, f(x))$.
-%
 
 
 \section{Backens lutning}
@@ -137,16 +138,10 @@ Därefter sätter vi in värdet $x=0.8$ i funktionen för lutningen
 \begin{align*}
   y'(0.8)=0.8e^{-0.8^2}
 \end{align*}
+%
 Insättningen av $0.8$ ger lutningen värdet $\approx(-0.42)$.Vilket är svaret
 på deluppgiften. 
 %
-% Den här raderna består helt av kommentarer som 
-% LaTeX inte bryr sig om. De betraktas inte heller 
-% som tomrader, vilka skulle signalera att texten övergår 
-% i ett nytt stycke, för de innehåller ju (i alla fall) ett 
-% procenttecken på varje rad. På så sätt kan man få in 
-%"blankrader" i sitt manus utan att de ska markera 
-% nytt stycke. 
 
 
 \section{Backens brantaste punkt}
@@ -161,61 +156,98 @@ Uppgiftens lösande sker på följande sätt:
 \end{quote}
 %
 \emph{Lösning:} Det uppgiften frågar efter är $x$-värdet i den punkten där 
-backen är som brantast. 
-
-
-Vi vet att backens \emph{lutning} är som störst 
-där $y'$ är störst. Det vill säga där $y''$ är lika med~0. Vi utgår från 
-funktionen $f=0.5e^{-x}$  och deriverar två gånger för att få ut funktionen 
-för $y''$
+backen är som brantast. Vi vet att backens \emph{lutning} är som störst 
+där $y'$ är störst. Det vill säga där $y''$ är lika med~0.\newpage
+%
+Vi beräknar och skriver om $y'$:
 %
 \begin{align*}
   &y=0.5\cdot e^{-ax^2}\\
-  &y'=-a\cdot e^{-ax^2}\\
+  &y'=-ax\cdot e^{-ax^2}\\
+  &y'=-\frac{ax}{e^{ax^2}}
 \end{align*}
 %
-Här väjer vi att dela upp funktionen i dess två faktorer i syfte att skapa
-ordning medans vi deriverar. 
+Här väjer vi att använda \emph{kedjeregeln} då vi utifrån $y'$ kan få ut 
+fyra stycken funktioner. Dessa kallar vi för$f(x)=-ax$, $f'(x)=-a$, $g(x)=e^{-x^2}$ och $g'(x)=-2ax\cdot e^{-x^2}$. 
+Genom \emph{kedjeregeln} kan vi få ut \emph{andraderivatan}. Vi fortsätter
+genom att sätta in de kända värdena och ställer 
+upp en ekvation enligt \emph{kedjeregeln}:
+%
 \begin{align*}
-  &f(x)=-ax\\
-  &g(x)=e^{-ax^2}      
+  \label{eq:1}
+  y''=f'(x)g(x)-f(x)g'(x)
+  %Enklare att se med en sepparation
+  =-a\cdot e^{ax^2}+ax\cdot 2ax\cdot e^{ax^2}
 \end{align*}
-Därefter deriverar vi
+%
+Därefter eftersom \emph{lutningen} var är störst när \emph{andraderivatan}
+är lika med 0 ger vi $y''$ värdet 0, efter detta förenklar vi ekvationen:
+%
 \begin{align*}
-  &f'(x)=-a\\
-  &g'(x)=-2ax\cdot e^{-ax^2}      
+  &-a\cdot e^{ax^2}+ax\cdot 2ax\cdot e^{ax^2}=0\\
+  &-a\cdot e^{-ax^2}+2a^2x^2\cdot e^{-ax^2}=0\\
+  &a\cdot e^{-ax^2}(2ax^2-1)=0
 \end{align*}
-Tillsammans bildar de två funktionerna \emph{andraderivatan}. Vi fortsätter
-med att skriva ihop dessa igen och därefter faktorisera dessa
-\section{Och ännu nästa problem...}
+%
+Utifrån detta använder vi oss utav nollproduktsmetoden som ger följande
+$ae^{ax^2}>0$. Om vi utgår ifrån detta vilkor kan vi få ut ett värde för 
+$x$.
+%
+\begin{align*}
+  &2ax^2-1=0\\
+  &2ax^2=1\\
+  &x^2=\frac{1}{2a}\\
+  &x=\sqrt{\frac{1}{2a}}
+\end{align*}
+%
+Detta ger oss svaret till uppgiften. $x=\sqrt{\frac{1}{2a}}$ är det $x$-värde
+i den punkten där \emph{derivatan} är som störst. 
+Det vill säga där backen är som brantast.
+
+
+\section{Lösning av variabel}
 \label{sec:uppgN}
 
 
-
-\begin{displaymath}
-  a=\frac{1}{2x^2}=\frac{1}{2}=0.5
+Uppgiftens lösande sker på följande sätt:
+%
+\begin{quote}
+  Bestäm $a$ så att backen är brantast för $x=1.0$.
+\end{quote}
+%
+\emph{Lösning:} Uppgiften går att lösa genom  användandandet av $x$-värdet
+från föregående deluppgift.
+%
+\begin{displaymath} 
+  x=\sqrt{\frac{1}{2a}}
 \end{displaymath}
-\emph{Svar:} $a=0.5$
-\section{Diskussion [och slutsatser]}
+%
+Det uppgiften frågar efter är det värde som $a$ kommer att ha då $x=1.0$
+Genom att sätta in $x$-värdet i utrycket ovan
+ger det oss möjligheten att ställa upp en ekvation som går att lösa på 
+följande sätt:
+%
+\begin{align*} 
+  &1=\sqrt{\frac{1}{2a}}\\
+  &1^2=\frac{1}{2a}\\
+  &2a=1\\
+  &a = \frac{1}{2}=0.5.\label{eq:2}
+\end{align*}
+%
+Genomförd ekvation ger oss $a$-värdet 0.5 vilket är svaret på den sista deluppgiften. 
+
+
+\section{Diskussion}
 \label{sec:disk}
 
 
-Sammanfatta vad som avhandlats i dokumentet och sätt det i
-sitt sammanhang.
-%
-\begin{thebibliography}{99}
-%
-\bibitem{latexcompanion} 
-Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
-\textit{The \LaTeX\ Companion}. 
-Addison-Wesley, Reading, Massachusetts, 1993.
-%
-\bibitem{einstein} 
-Albert Einstein. 
-\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
-[\textit{On the electrodynamics of moving bodies}]. 
-Annalen der Physik, 322(10):891–921, 1905.
-%
-\end{thebibliography}
+I denna rapport har vi löst tre stycken deluppgifter relaterade till derivata genom
+användning av \emph{kedjeregeln} samt andraderivata.
+
+Att lösa denna typen av problem är enkelt i denna uppgift. Däremot hade uppgiften
+varit större, exempelvis bestått av svårare utryck eller ett värde i en punkt med 
+fler decimaler kunde uppgiftens svårighetsgrad ökat betydligt. Men utifrån denna
+uppgift kan man skapa sig en förstelse kring hur man löser dessa typer av problem,
+vilket gör det enklare genom en stärkt försteålse lösa svårare problem.
 %
 \end{document}
