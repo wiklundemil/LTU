@@ -3,17 +3,18 @@ def derivate(f,x0,h):       #Deriverings funktionen
     return value    #Ger funktionen värdet value
 
 
-def solve(f,x0,h):  #Funktionens syfte är att 
-    x1 = x0 + h     #
-    while abs(x0 - x1) > h:
-        x1 = x0
-        x0 = x0 - (f(x0)/derivate(f,x0,h))
-
-    return x0
-
 def f(x):               #Skapar funktionen f.
     f = x**2            
     return f            #funktionen får värdet f
 
 
-print(solve(f,0,0.0001))
+def solve(f,x0,h):  #Använder sig av funktionen f samt funktionen derivate 
+    x1 = x0 + (2*h)     
+    while abs(x0 - x1) > h:  #Medans skillnaden är större än h så kör vi loopen
+        x1 = x0
+        x0 = x0 - (f(x0)/derivate(f,x0,h))
+
+    return x0   #Om skillnaden inte är större än h ger vi funktionen värdet av x0
+
+
+print("Värdet av funktionen solve blir",solve(f,1475069,3))
