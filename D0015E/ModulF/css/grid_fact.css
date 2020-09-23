@@ -1,0 +1,13 @@
+#grid-container-grid_fact{
+    display: grid;
+    position: fixed;
+    grid-template-columns: auto auto auto ;
+    gap:0px 10px;
+    margin-top:10px;
+  }  
+  .grid-item-grid_fact{
+      border:1px solid black;
+      text-align: left;
+      font-size: 10px;
+      background-color:burlywood;
+}

@@ -1,6 +1,8 @@
 @import "help.css";
+@import "grid_fact.css";
 body{
 	background-color: bisque;
+	height:100%;
 }
 #people {
 	height:100px;
