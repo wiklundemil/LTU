@@ -1,0 +1,97 @@
+*{padding: 0; margin: 0}
+body {height: 100vh; width: 100%; background-image: url(alaska.jpg); background-size: cover;} 
+.menu {
+    position: static;
+    background-color: #5E6971;
+     color: white;
+      height: 100px;
+        position: relative;
+        border: 1px solid black;
+
+     }
+
+     .menu img {
+         padding: 10px;
+
+
+     }
+
+     #login {
+
+         float: right;
+
+
+
+    background-color: #ABB5B1;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s
+
+     }
+
+     .sida {
+         border: 1px solid black;
+
+         padding: 0;
+         margin: 15px 0px 100px 15px;
+         width: 300px;
+         background: #ABB5B1;
+         float: right;
+         min-height: 100%;
+     }
+
+     .trådar {
+         border: 1px solid black;
+         margin: 15px 330px 100px 15px;
+         background: #AAB3B6;
+         height: 100%
+
+     }
+
+     .tråd{
+         width: 1145px;
+         background: white;
+         margin: 15px 330px 100px 15px;
+         height: 80px
+
+          }
+
+
+          #tilltrådar {
+                  background-color: #ABB5B1;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s
+          }
+
+          .valkommen {
+
+              margin-top: 100px;
+          }
+
+
+
+
+
+
+          div {font-family: myfirstfont;} 
+
+          @font-face { font-family: myfirstfont;
+               src: url(ForsvarsmaktenSans-Stencil.otf);
+              }

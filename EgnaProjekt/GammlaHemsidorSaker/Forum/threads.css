@@ -1,0 +1,53 @@
+.låda-för-trådar{
+
+	margin-top: 50px; 
+	margin-left: -20px;
+	width:calc(100% - 40px);
+	min-height: 916px;
+	z-index: 2;
+	background-color:#F7F7F7;
+}
+.låda-för-trådar-content h1{
+
+	font-family: myfirstfont;
+	font-size: 45px;
+	text-decoration: underline;
+
+}
+.låda-för-trådar-content{
+
+    border:1px black solid;
+    background-color: #F7F7F7;
+	margin: 10px;
+	width:calc(100% - 80px);
+	min-height: 894px;
+	z-index: 2;
+	position: absolute;
+
+}
+.låda-för-trådar-content a:hover{
+	
+    color:rgba(0,255,0,1);
+
+
+}
+.låda-för-trådar-content a{
+
+	text-decoration: none;
+	color:black;
+
+}
+.popularthreads{
+
+  transition: transform .5s;
+}
+.popularthreads:hover{
+    transform: scale(1.1); 
+
+}
+.alignment_threads{
+
+	font-size: 24px;
+	font-family:myfirstfonttwo;
+	text-decoration: none;
+}

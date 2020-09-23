@@ -1,0 +1,148 @@
+*{padding: 0; margin: 0}
+body {height: 100vh; width: 100%; background-image: url(alaska.jpg); background-size: cover;} 
+.menu {
+    padding-top:10px;
+    position: static;
+    background-color: #5E6971;
+     color: white;
+      height: 125px;
+        position: relative;
+        border: 1px solid black;
+        padding-left: 30px;
+     }
+
+     .menu img {
+         position: absolute;
+         z-index: 11;
+
+
+     }
+     tr:nth-child(even) {background: #CCC}
+    tr:nth-child(odd) {background: #FFF}
+tr:nth-child(even) {background-color: #f2f2f2;}
+     .links{
+        font-size: 25px;
+        padding-top:27px;
+        position: absolute;
+
+        z-index: 10px;
+        padding-left: calc(50% - 137.5px);
+     }
+
+     #login {
+
+         float: right;
+
+     }
+    /* .buttonstyle input{
+     
+    background-color: #39403E; 
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    margin-right:15px;
+    margin-top: 40px; 
+
+
+     }
+     */
+     .menu img{
+        padding-top: 10px;
+        width:300px;
+        height:85px;
+     }
+     a{
+        text-decoration: none;
+        color:black;
+
+     }
+      a:hover{
+        background-color: grey;
+
+     }
+     .sida {
+         border: 1px solid black;
+
+         padding: 0;
+         margin: 15px 0px 100px 15px;
+         width: 300px;
+         background: #ABB5B1;
+         float: right;
+         min-height: 100%;
+     }
+
+     .trådar {
+         border: 1px solid black;
+         margin: 15px 330px 100px 15px;
+         background: #AAB3B6;
+         min-height: 100vh;
+         padding-bottom:20px;
+
+     }
+
+     .tråd{
+         width: 1145px;
+         background: white;
+         margin: 15px 330px 100px 15px;
+         height: 80px
+
+          }
+          .button{
+    background-color: #5E6971;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s
+
+
+          }
+
+
+
+          div {font-family: myfirstfont;} 
+
+          @font-face { font-family: myfirstfont;
+               src: url(ForsvarsmaktenSans-Stencil.otf);
+              }
+              .loginstuff{
+
+
+                margin-right: 10px;
+                position: absolute;
+              }
+              .loginstuff input:submit{
+
+              }
+              .profilepicture{
+
+
+              }
+              .search{
+
+                margin-top: 10px;
+                margin-left: 15px;
+              }
+              .searchchoises{
+                height:100px;
+                width:calc(100% + 0.5px );
+                border: 0px solid black ;
+              }
+              .content2{
+                padding-top: 25px;
+                height:75px;
+                background-color:#5E6971;
+
+              }
+     

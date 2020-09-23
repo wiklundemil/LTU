@@ -1,0 +1,22 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background-image: url("alaska.png");
+	background-size: cover;	
+}
+
+@font-face { font-family: myfirstFont;
+    src: url(ForsvarsmaktenSans-Condensed.otf);
+}
+@font-face { font-family: myfirstFonttwo;
+    src: url(ForsvarsmaktenSans-Bold.otf);
+}
+
+@import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
+
+body {
+	font-size: 15px;
+}
+

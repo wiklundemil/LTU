@@ -1,0 +1,64 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+#avatar {
+    background-image: url('blue.png');
+
+    width: 50px;
+    height: 50px;
+
+    background-size: cover;
+
+    position: relative;
+
+    background-position: center;
+
+margin-left: calc(50% - 25px);
+    border-radius: 50%;
+}
+#avatar_myprofile {
+    background-image: url('blue.png');
+
+    width: 50px;
+    height: 50px;
+
+    background-size: cover;
+
+    position: relative;
+
+    background-position: center;
+
+    border-radius: 50%;
+
+}
+
+#welcometext{
+
+    font-size: 50px;
+    padding-top: 100px;
+
+}
+.logoutbutton input{
+
+
+}
+
+.table{
+    width:calc(100% - 100px);
+    margin-left: 100px;
+
+}
+ tr:nth-child(even) {background: #CCC}
+    tr:nth-child(odd) {background: #FFF}
+
+
+.content{
+
+    width:100vh;
+    height:100%;
+    background-image: url("skog.jpg");
+
+}
+

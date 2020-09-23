@@ -1,0 +1,41 @@
+@import"topmenu.css";
+@import"middle.css";
+::-webkit-scrollbar {
+    display: none;
+}
+body{
+    margin:0;
+    border:0;
+    padding:0;
+}
+/* Här börjas CSS för top */
+.top{
+    width:100%;
+    height:100vh;
+    background-color: aquamarine;
+}
+/* här slutar CSS för top */
+/* Här börjar CSS för middle */
+.middle{
+    width:100%;
+    height:100vh;
+    background-color: beige;    
+}
+/* Här slutar CSS för middle */
+/* Här börjar CSS för footer */
+.footer{
+    width:100%;
+    height:100vh;
+    background-color: cyan;
+}
+/* Här slutar CSS för footer */
+
+@font-face {
+    font-family: roboto;
+    src: url(fonts/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: roboto-thickitalic;
+    src: url(fonts/Roboto-BoldItalic.ttf);
+}
+
