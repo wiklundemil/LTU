@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv">
+<head>
+<title>Objektet hittas ej!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Objektet hittas ej!</h1>
+<p>
+
+
+    Den efterfr&aring;gade adressen hittades inte p&aring; denna server.
+
+  
+
+    L&auml;nken p&aring; den
+    <a href="http://localhost:8012/F%25C3%25B6rsvarsmaktenForum/test.php">tidigare sidan</a> 
+    verkar vara felaktig eller inaktuell. V&auml;nligen informera f&ouml;rfattaren av
+    <a href="http://localhost:8012/F%25C3%25B6rsvarsmaktenForum/test.php">sidan</a>
+    om felet.
+
+  
+
+</p>
+<p>
+Om du tror att detta beror p&aring; ett serverfel, v&auml;nligen kontakta 
+<a href="mailto:postmaster@localhost">webbansvarig</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.26 (Win32) OpenSSL/1.0.2l PHP/7.1.7</span>
+</address>
+</body>
+</html>
+

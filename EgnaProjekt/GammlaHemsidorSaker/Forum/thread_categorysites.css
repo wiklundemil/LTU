@@ -1,0 +1,104 @@
+body{
+	margin:0;
+	padding:0;
+	background-image: url("alaska.jpg");
+	background-attachment: fixed;
+}
+.alignment_threads{
+
+	font-size: 24px;
+	font-family:myfirstfonttwo;
+	text-decoration: none;
+    transition: .3s ease;
+}
+.grid-item{
+	margin-top: 50px;
+	position: relative;
+	height:100px;
+	width:500px;
+	background-color: #F7F7F7;
+    color:black;
+    padding-top: 78px;
+	font-family:myFirstFont;
+    transition: transform .5s;
+}
+.grid-item:hover{
+
+}
+a{
+	text-decoration: none;
+
+}
+.grid-item:hover{
+
+	color:rgba(0,255,0,1);
+    transform: scale(1.1); 
+
+}
+.newthread_form{
+	background-color: #F7F7F7;
+	width:300px;
+	margin-top: 50px;
+	height:700px;
+	position: absolute;
+	margin-left: calc(100% - 300px);
+}
+.uploadedby{
+
+	font-size: 14px;
+	color:grey;
+
+}
+.grid-item:hover .uploadedby{
+
+	color:grey;
+
+}
+
+#searchbar-meny2 {
+  
+  margin-top:15px;
+  display: inline-block;
+  margin-right:5px;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+
+.yourthreads{
+
+	border-top:1px solid #bbb;
+	font-size: 24px;
+	font-family: myfirstfonttwo;
+	text-decoration: none;
+	color:black;
+	margin-top: 55px;
+	height: calc(100% - 92px);
+	width:100%;
+}
+.yourthreads a{
+
+	color:black;
+
+}
+.yourthreads a:hover{
+
+	color:rgba(0,255,0,1)
+
+}
+.threads{
+	width:270px;
+	color:#2BDB8C;
+    transition: transform .5s;
+
+}
+
+.threads:hover{
+	color:#2BDB8C;    
+    transform: scale(1.1); 
+
+}
+h1{
+	font-family: myfirstfont;
+}

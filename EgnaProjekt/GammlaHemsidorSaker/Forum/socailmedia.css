@@ -1,0 +1,33 @@
+.socialamedier{
+
+	padding-top: 20px;
+	margin-top: 1100px;
+	width:100%;
+	height: 200px;
+	position: absolute;
+	background-color:#F7F7F7; 
+    font-family:myfirstfont;
+
+}
+.socialamedier-content a{
+
+	color:darkgrey;
+	text-decoration: none;
+
+}
+.socialamedier-content a:hover{
+
+	transition: .15s ease; 
+    color: #2BDB8C;
+
+}
+.socialamedier-content{
+
+	margin-left: 10px;
+	width:calc(100% - 20px);
+	height: 200px;
+	position: absolute;
+	background-color:#F7F7F7; 
+    font-family:myfirstfont;
+
+}

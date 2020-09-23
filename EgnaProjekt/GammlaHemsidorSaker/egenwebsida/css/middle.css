@@ -1,0 +1,18 @@
+.middlegrid{
+    width:100%;
+    height:100vh;
+    display: grid;
+    grid-gap:10px;
+    grid-template-columns: repeat(2, 1fr);
+    font-family: roboto;
+}
+.middlegrid-item{
+    justify-self: center;
+    align-self: center;
+    background-size: cover;
+}
+.overlay{
+    width:630px;
+    height:435px;
+    background-color: rgba(0,0,0,0.2)
+}
