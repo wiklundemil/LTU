@@ -1,18 +1,19 @@
 def derivate(function,x,h):
-    function_value = ((1/(2*h))*(function3(x + h) - function3(x - h)))
-    return function_value
+    function_value = ((1/(2*h))*(function1(x + h) - function1(x - h))) #Sjävla formeln för derivatan
+    return function_value  #ger funktionen det deriverade värdet
 
-# def function1(x):
-#     value = x**2
-#     return value
+def function1(x):    #testfunktion 1
+    value = x**2
+    return value
 
-# def function2(x):
+# def function2(x):  #testfunktion 2
 #     value = x**3
 #     return value
 
 
-def function3(x):
-    value = x**4
-    return value
+# def function3(x):  #testfunktion 3
+#     value = x**4
+#     return value
 
-print(derivate(function3,5,0.001))
+
+print("Detta är derivatan:",derivate(function1,5,0.001))
