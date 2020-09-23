@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,14 +5,18 @@
         <meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="css/hammurabi.css">
 		<script type="text/javascript" src="js/hammurabi.js"></script>
+		<script type="text/javascript" src="js/alert.js"></script>
 	</head>
+	<img src="bild.png" title="Hammurabi"></img>
 	<body onload="gameStart();">
-		<h2 id="year">Rapport för år:</h2>
-		<ul id="people">
-			<li id="starved">placeholder starved</li>
-			<li id="newcomers">placeholder newcommers:</li>
-			<li id="population">placeholder population:</li>
-		</ul>
+		<h2 id="year" title="Din årsrapport">Rapport för år:</h2>
+		<center>
+			<ul id="people">
+				<li id="starved">placeholder starved</li>
+				<li id="newcomers">placeholder newcommers:</li>
+				<li id="population">placeholder population:</li>
+			</ul>
+		</center>
 		<ul id="economy">
 			<li id="acres">plcaeholder Acres:</li>
 			<li id="bushels">placeholder Bushels:</li>
@@ -41,18 +44,19 @@
 				<input type="range" id="sliderPlantwithseed" onchange="onChangePlanting('sliderPlantwithseed');">
 				<input type="button" value="+" id="plusbuttonPlantwithseed" onclick="onChangePlanting('plusbuttonPlantwithseed');">
 			</fieldset>
-			<button type="button" onclick="gameStart();">Restart</button>
+			<button type="button" onclick="alertFunction(),gameStart();">Restart</button>
 			<button type="button" onclick="finishTurn();">So be it!</button>
-			<button onclick="window.location.href='html/help.html'" type="button">Help</button>
+			<script type="text/javascript" src="js/hammurabi.js"></script>
+			<button onclick="alertFunction(),window.location.href='html/help.html'" type="button">Help</button>
 		</form>
 		<!--Här slutar slider delen av startsidan-->
 		<!--Här börjar regler, tips, om hammurabi.-->
 		<div id="grid-container-grid_fact">
 			<div class="grid-item-grid_fact">
 				<h1>Spelregler</h1>
-				<h2>1. Spelet varar i 10 år där 1 år räknas som en runda<br><br>
+				<h2>1. Spelet varar i 10 år där 1 år räknas som en runda.<br><br>
 					2. Varje år anger du hur mycket "Bushels" som ska köpas/säljas.
-					Du anger äben hur mycket mark som ska köpas/säljas. 
+					Du anger även hur mycket mark som ska köpas/säljas. 
 					Du har även skyldighet till att ange hur mycket mat din befolkning
 					ska få, sen har du också skyldighet till att så nya frön för att
 					erhålla mera "Bushels".<br><br>
@@ -67,26 +71,25 @@
 				</h2>
 			</div>
 			<div class="grid-item-grid_fact">
-				<h1>Tips</h1>
-				<h2>TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext</h2>
+				<h1>Regler sammanfattade </h1>
+				<h2>1. Spellängd 10år.<br><br>
+					2. Köp/sälj varor och så frön.<br><br>
+					3. 20 "Bushels" per person. 10 mark per person.<br><br>
+					4. 1 Mark kräver minst 1 "Bushels"<br><br>
+					5. Priset på mark varierar.<br><br>
+					6. Låt inte förhållandet i landet bli för dåligt.<br><br>
+					7. Du vinner när du nått år 11.<br><br></h2>
 			</div>
 			<div class="grid-item-grid_fact">
 				<h1>Om Hammurabi</h1>
-				<h2>TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext
-					TexttexttextTexttexttext</h2>
+				<h2>Hammurabi var kung i Babylon i slutperioden av 1700-talet.
+					Tidigt under hans början som kung var han bara en utav många
+					"små kungar" som rearade över då, delar utav det som senare
+					blev Babylonien. Hammurabi var delaktig i att erövra samtliga
+					kungariken i Summer, Mari, samt Larsa efter omrking 30 år av
+					sin regeringstid. Hammurabi gjorde Babylon utrifrån detta till 
+					ett viktigt centrum. 
+				</h2>
 			</div>
 		</div>
 		<!--Här slutar regler, tips, om hammurabi.-->

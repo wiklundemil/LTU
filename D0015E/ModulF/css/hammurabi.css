@@ -2,44 +2,82 @@
 @import "grid_fact.css";
 body{
 	background-color: bisque;
-	height:100%;
+	background-size: cover;
 }
-#people {
-	height:100px;
-	width:80vw;
-	display: block;
-	border: black 1px solid;
-	list-style: none;
-	text-align-last: center;
+@media screen and (max-width: 1000px) {
+	img{
+	  width:0;
+	  height:0;
+	}
+  }
+  @media screen and (min-width: 1000px) {
+	img{
+		width:150px;
+		height:150px;
+		border:black 1px solid;
+		position: absolute;;
+		bottom:calc(100% - 160px);
+		left:calc(100% - 160px);
+	}
+}
+#people{
 	margin:0 auto;
+	border: black 1px solid;
 	background-color: burlywood;
+	height:100px;	
+	width:50%;
+	position: relative;
 }
-
-#people li {
+#people li{
 	display: inline;
 	margin-right: 10px;
 	border: black 1px solid;
-	font-size:20px;
-	
 }
-
 #economy {
 	display: block;
 	padding-left: 0;
 	border: black 1px solid;
 	list-style: none;
+	background-color: burlywood;
 }
-
-#economy li {
-	margin-bottom: 1px;
-}
-
-.fieldset {
+.fieldset{
 	border-style: none;
 }
-
-button {
-	margin: 30px 25px 0 0;
-	padding: 10px 15px;
+button{
+	margin: 35px 30px 0 0;
+	padding: 15px 20px;
 }
-
+h1{
+	font-size: 20px;
+}
+.grid-item-grid_fact h1{
+	font-size: 20px;
+	text-decoration: underline;
+}
+h2{
+	font-size: 16px;
+}
+#year{
+	font-size: 28px;
+	text-decoration: underline;
+}
+#acres{
+	color:green;
+	font-weight: bold;
+}
+#bushels{
+	color:red;
+	font-weight: bold;
+}
+#harvest{
+	color:grey;
+	font-weight: bold;
+}
+#rats{
+	color:black;
+	font-weight: bold;
+}
+#price{
+	color:darkgoldenrod;
+	font-weight: bold;
+}

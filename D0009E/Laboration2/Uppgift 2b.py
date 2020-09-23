@@ -20,5 +20,4 @@ def solve(f,x0,h):  #Använder sig av funktionen f samt funktionen derivate
 
     return x0   #Om skillnaden inte är större än h ger vi funktionen värdet av x0
 
-
-print("Värdet av funktionen solve blir:",solve(f,10,0.01))
+print(solve(math.sin,10,0.001))

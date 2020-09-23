@@ -15,5 +15,3 @@ def function1(x):    #testfunktion 1
 #     value = x**4
 #     return value
 
-
-print("Detta är derivatan:",derivate(function1,5,0.001))

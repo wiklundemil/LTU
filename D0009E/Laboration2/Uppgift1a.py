@@ -1,18 +1,10 @@
-def bounce(n, nreturn): 
-    if n == 0:
-        rebounce(n, nreturn)
-    else:
-        print(n)
-        bounce(n-1, nreturn) 
-
-def rebounce(n, nreturn):   
-    if n == nreturn:        #iterationen körs tills det når värdet av nreturn, vilket är det oförändrade orginella värdet av n.
-        print(n)
-        print("Bounce complete")    
+def bounce(n):     
+    if n==0:
+        print(n)    #Påvägen tillbaka kommer den att printa ut alla "sparade" värden av n i det här fallet, 1,2,3 i just den ordningen.
     else: 
         print(n)
-        rebounce(n+1, nreturn)
+        bounce(n-1) 
+        print(n)          
+import d0009e_lab2_bounceTest
 
-n = int(input("Skriv en siffra:"))
-nreturn = n         #nreturn sätts samma som n men nreturn förblir oförändrat i syfte att ha kvar det orginella talet.
-bounce(n,nreturn)   
+# 1a 1b 2a 2b inte klara
