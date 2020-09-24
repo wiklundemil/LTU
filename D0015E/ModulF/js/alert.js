@@ -1,3 +1,3 @@
 function alertFunction() {
-  alert("Detta kommer starta om ditt spel!");
+  alert("Detta kommer avbryta ditt spel!");
 }
