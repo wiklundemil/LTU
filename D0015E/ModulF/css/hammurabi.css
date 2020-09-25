@@ -22,10 +22,16 @@ body{
 		left:calc(100% - 160px);
 	}
 }
+<<<<<<< HEAD
 /* Här slutar stilen för img */
+=======
+.imblue:hover{
+	color:blue;
+}
+>>>>>>> d0233491925fdf5bf5255f89a5c1ce6c4c81869e
 #people{
 	margin:0 auto;
-	border: black 1px solid;
+	border: black 1px dashed;
 	background-color: burlywood;
 	height:100px;	
 	width:50%;
@@ -34,12 +40,12 @@ body{
 #people li{
 	display: inline;
 	margin-right: 10px;
-	border: black 1px solid;
+	border: black 1px dashed;
 }
 #economy {
 	display: block;
 	padding-left: 0;
-	border: black 1px solid;
+	border: black 1px dashed;
 	list-style: none;
 	background-color: burlywood;
 }

@@ -3,7 +3,7 @@
 /* Css för grid fact i hammurabi.html filen */
 #grid-container-grid_fact{
     display: grid;
-    position: absolute;
+    position: relative;
     grid-template-columns: auto auto auto ;
     gap:0px 10px;
     margin-top:10px;
