@@ -1,3 +1,6 @@
+/* Emil Wiklund 000915-8635 */
+
+/* Css för grid fact i hammurabi.html filen */
 #grid-container-grid_fact{
     display: grid;
     position: absolute;
@@ -10,4 +13,8 @@
       text-align: left;
       font-size: 10px;
       background-color:burlywood;
+}
+.grid-item-grid_fact h1{
+	font-size: 20px;
+	text-decoration: underline;
 }

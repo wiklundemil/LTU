@@ -1,9 +1,11 @@
+/* Emil Wiklund 000915-8635 */
 @import "help.css";
 @import "grid_fact.css";
 body{
 	background-color: bisque;
 	background-size: cover;
 }
+/* Stil för img taggen, deta är som en if satts. När sidan blir mindre än 100px bred gör det här, annars det här */
 @media screen and (max-width: 1000px) {
 	img{
 	  width:0;
@@ -20,6 +22,7 @@ body{
 		left:calc(100% - 160px);
 	}
 }
+/* Här slutar stilen för img */
 #people{
 	margin:0 auto;
 	border: black 1px solid;
@@ -47,16 +50,7 @@ button{
 	margin: 35px 30px 0 0;
 	padding: 15px 20px;
 }
-h1{
-	font-size: 20px;
-}
-.grid-item-grid_fact h1{
-	font-size: 20px;
-	text-decoration: underline;
-}
-h2{
-	font-size: 16px;
-}
+
 #year{
 	font-size: 28px;
 	text-decoration: underline;
@@ -80,4 +74,10 @@ h2{
 #price{
 	color:darkgoldenrod;
 	font-weight: bold;
+}
+h1{
+	font-size: 20px;
+}
+h2{
+	font-size: 16px;
 }
