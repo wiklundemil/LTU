@@ -22,13 +22,7 @@ body{
 		left:calc(100% - 160px);
 	}
 }
-<<<<<<< HEAD
 /* Här slutar stilen för img */
-=======
-.imblue:hover{
-	color:blue;
-}
->>>>>>> d0233491925fdf5bf5255f89a5c1ce6c4c81869e
 #people{
 	margin:0 auto;
 	border: black 1px dashed;
