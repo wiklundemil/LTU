@@ -28,7 +28,6 @@ def solve(f,x0,h):  #Använder sig av funktionen f samt funktionen derivate
     while abs(x0 - x1) > h:  #Medans skillnaden är större än h så kör vi loopen
         x1 = x0
         x0 = x0 - (f(x0)/derivate(f,x0,h))
-
     return x0   #Om skillnaden inte är större än h ger vi funktionen värdet av x0
 
 
@@ -44,23 +43,22 @@ def menu():
     if n=="1":
         print("*****bounce()*****")
         bounce(3)
-        menu()
+    
     elif n=="2":
         print("*****tvarsumman()*****")
         print("Siffersumman är",tvarsumman(123),"av det givna värdet 123.")
-        menu()
+    
     elif n=="3":
         print("*****Newton-Raphson()*****")
         print("Löser med f(x)=x^2-1")
-        solve(n,5,0.01)
+        n = int(input("Skriv ditt x0 värde. x0="))
+        print("Värde:",solve(f,n,0.01))
 
-        menu()
     elif n=="4":
         print("Avslutar...")
+        exit()
         
     else:
         print("Inte valbart.")
-        menu()
+    menu()
 menu()
-
-#något med rad 54 

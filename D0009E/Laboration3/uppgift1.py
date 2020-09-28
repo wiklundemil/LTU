@@ -1,7 +1,8 @@
 ListaOrd = ["banan","kiwi","vindruva"]
 BeskrivningOrd = ["Gul och ful","Grön och skön","Röd och äcklig"] 
 
-n = input("skriv vilket av orden du vill ha beskrivning på:")
+print("Dessa är alla ord i ordlistan:",ListaOrd)
+n = input("Skriv vilket av orden du vill ha beskrivning på:")
 
 index = ListaOrd.index(n)
 length = (len(ListaOrd))-1
