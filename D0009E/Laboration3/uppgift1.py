@@ -34,7 +34,7 @@ def tuplefunc():
 def dictionaryfunc():
     dictionary_list={'banan': 'gul och ful', 'kiwi': 'grön och skön', 'vindruva':'röd och äcklig'}
 
-    ord = input("Skriv det ord du vill lägga till:")
+    ord = input("Skriv det [ord] du vill lägga till:")
     beskrivning = input("Skriv den beskrivning du vill lägga till:")
 
     dictionary_list[ord]=beskrivning #Lägger till ett ny grupp baserad på ord och beskrivning inputen
@@ -56,6 +56,8 @@ def listfunc():
         beskrivning.append(new_beskrivning)
         print("Lade till:",ord, beskrivning)
         
+        result = (ord, beskrivning)
+        return result
     elif choice == 2:
         print("Dessa är alla ord i ordlistan:",ord)
         n = input("Skriv [ord] du vill ha beskrivning på:")
