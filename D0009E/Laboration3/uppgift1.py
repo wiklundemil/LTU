@@ -44,33 +44,72 @@ def dictionaryfunc():
     print(dictionary_list[n]) #Printar ut den grupp med nyckeln n enligt
 
 
-def listfunc():
-    choice = int(input("Vad vill du göra?"))
-    ord = []
-    beskrivning = [] 
-    if choice == 1:
-        new_ord = input("Word to insert:")
-        new_beskrivning = input("Discription of word:")
+# def listfunc():
+#     choice = int(input("Vad vill du göra?"))
+#     ord = []
+#     beskrivning = [] 
+#     if choice == 1:
+#         new_ord = input("Word to insert:")
+#         new_beskrivning = input("Discription of word:")
 
-        ord.append(new_ord)
-        beskrivning.append(new_beskrivning)
-        print("Lade till:",ord, beskrivning)
+#         ord.append(new_ord)
+#         beskrivning.append(new_beskrivning)
+#         print("Lade till:",ord, beskrivning)
         
-        result = (ord, beskrivning)
-        return result
-    elif choice == 2:
-        print("Dessa är alla ord i ordlistan:",ord)
-        n = input("Skriv [ord] du vill ha beskrivning på:")
-        if n in ord:
-            index = ord.index(n)
-            length = (len(ord))-1
-            print("length:",length)
-            if index <= length:
-                print(beskrivning[index])
+#     elif choice == 2:
+#         print("Dessa är alla ord i ordlistan:",ord)
+#         n = input("Skriv [ord] du vill ha beskrivning på:")
+#         if n in ord:
+#             index = ord.index(n)
+#             length = (len(ord))-1
+#             print("length:",length)
+#             if index <= length:
+#                 print(beskrivning[index])
+#             else:
+#                 print("Not valid...")
+#     else:
+#         print("Exiting...")
+
+
+def listfunc():
+    def list(x):
+        ord = x
+        return ord
+
+    def list2(y):
+        beskrivning = y
+        return beskrivning
+
+
+    ord = []
+    beskrivning = []
+    while 1 > 0:      
+        print("***** Listor av strängar *****")
+        print("[1] Insert","[2] Lokup","[3] Exit program",sep="\n")
+        
+        choice = int(input("Vad vill du göra?"))
+        if choice == 1:
+            str_ord = input("Ord:")
+            str_beskrivning = input("Beskrivning")
+
+            result = list(str_ord)
+            result2 = list2(str_beskrivning)
+            lista = ord.append(result)
+            lista2 = beskrivning.append(result2)
+        elif choice == 2:
+            print("Dessa är alla ord i ordlistan:",ord)
+            n = input("Skriv [ord] du vill ha beskrivning på:")
+            if n in ord:
+                index = ord.index(n)
+                length = (len(ord))-1
+                print("length:",length)
+                if index <= length:
+                    print(beskrivning[index])
             else:
                 print("Not valid...")
-    else:
-        print("Exiting...")
+        elif choice == 3:
+            print("Avslutar...")
+            exit()
 
 
 def menu():
@@ -78,8 +117,6 @@ def menu():
     choice = int(input("Vad vill du göra?"))
 
     if choice == 1:
-        print("***** Listor av strängar *****")
-        print("[1] Insert","[2] Lokup","[3] Exit program",sep="\n")
         listfunc()
     elif choice == 2:
         print("***** Listor av tupler *****")
