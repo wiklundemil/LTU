@@ -13,64 +13,56 @@
 #     print("Inte tillgänlig.")
 
 
-def tuplefunc():
-    list_tupler = [("banan", "Gul och ful") ,("kiwi", "Grön och skön"), ("vindruva", "Röd och äcklig")]
-    for item in list_tupler:
-        print("Dessa är orden i listan:",item[0]) #För varje tupel i listna printar vi ut ordet (det med index 0)
-
-    ord = input("Skriv det ord du vill lägga till:")
-    beskrivning = input("Skriv den beskrivning du vill lägga till:")
-
-    new_tuple = (ord, beskrivning)
-    list_tupler.append(new_tuple)
-
-    print(list_tupler)
-    n = input("Skriv vad för ord du vill söka upp:")
-    for item in list_tupler:
-        if n in item:
-            print(item[1])    #Ger dig utskrift för det andra värdet i tuplern med ordet n i sig.
-
-
+#               ALTERNATIV 3              
 def dictionaryfunc():
-    dictionary_list={'banan': 'gul och ful', 'kiwi': 'grön och skön', 'vindruva':'röd och äcklig'}
-
-    ord = input("Skriv det [ord] du vill lägga till:")
-    beskrivning = input("Skriv den beskrivning du vill lägga till:")
-
-    dictionary_list[ord]=beskrivning #Lägger till ett ny grupp baserad på ord och beskrivning inputen
-
-    print(dictionary_list)    #Printar listan för att kontrolera att gruppen lades till
-    n = input("Skriv det ord som du vill slå upp:")
-    print(dictionary_list[n]) #Printar ut den grupp med nyckeln n enligt
-
-
-# def listfunc():
-#     choice = int(input("Vad vill du göra?"))
-#     ord = []
-#     beskrivning = [] 
-#     if choice == 1:
-#         new_ord = input("Word to insert:")
-#         new_beskrivning = input("Discription of word:")
-
-#         ord.append(new_ord)
-#         beskrivning.append(new_beskrivning)
-#         print("Lade till:",ord, beskrivning)
+    dictionary_list={} 
+    while 1 > 0:
+        print("***** Dictionary *****")    
+        print("[1] Insert","[2] Lokup","[3] Exit program",sep="\n")
+        n = int(input())
         
-#     elif choice == 2:
-#         print("Dessa är alla ord i ordlistan:",ord)
-#         n = input("Skriv [ord] du vill ha beskrivning på:")
-#         if n in ord:
-#             index = ord.index(n)
-#             length = (len(ord))-1
-#             print("length:",length)
-#             if index <= length:
-#                 print(beskrivning[index])
-#             else:
-#                 print("Not valid...")
-#     else:
-#         print("Exiting...")
+        if n == 1:
+            ord = input("Word to insert:")
+            beskrivning = input("Discription of the word:")
 
+            dictionary_list[ord]=beskrivning #Lägger till ett ny grupp baserad på ord och beskrivning inputen
+        elif n == 2:
+            print("Ordlistan:")
+            for key, value in dictionary_list.items():
+                print(key, sep="\n")
+            n = input("Word to lookup:")
+            print(dictionary_list[n]) #Printar ut den grupp med nyckeln n enligt
+        else:
+            print("Not valid...")
+#               ALTERNATIV 2              
+def tuplefunc():
+    list_tupler = []
+    while 1 > 0:
+        print("***** Listor av tupler *****")
+        print("[1] Insert","[2] Lokup","[3] Exit program",sep="\n")
+        n = int(input())
+        if n == 1:
+            for item in list_tupler:
+                print("Dessa är orden i listan:",item[0]) #För varje tupel i listna printar vi ut ordet (det med index 0)
 
+            ord = input("Word to insert:")
+            beskrivning = input("Discription of the word:")
+
+            new_tuple = (ord, beskrivning)
+            list_tupler.append(new_tuple)
+        elif n == 2:
+            print("Alla ord:",[i[0] for i in list_tupler]) #Tar alla ord med index 0 i enskilld tupel
+            n = input("Word to lookup:")
+            for item in list_tupler:
+                if n in item:
+                    print("Discription of the word:",item[1])    #Ger dig utskrift för det andra värdet i tuplern med ordet n i sig.
+        elif n == 3:
+            exit()
+        else:
+            print("Not valid...")
+
+            
+#               ALTERNATIV 1              
 def listfunc():
     def list(x):
         ord = x
@@ -87,10 +79,10 @@ def listfunc():
         print("***** Listor av strängar *****")
         print("[1] Insert","[2] Lokup","[3] Exit program",sep="\n")
         
-        choice = int(input("Vad vill du göra?"))
+        choice = int(input())
         if choice == 1:
-            str_ord = input("Ord:")
-            str_beskrivning = input("Beskrivning")
+            str_ord = input("Word to insert:")
+            str_beskrivning = input("Discription of the word")
 
             result = list(str_ord)
             result2 = list2(str_beskrivning)
@@ -98,13 +90,12 @@ def listfunc():
             lista2 = beskrivning.append(result2)
         elif choice == 2:
             print("Dessa är alla ord i ordlistan:",ord)
-            n = input("Skriv [ord] du vill ha beskrivning på:")
+            n = input("Word to lookup:")
             if n in ord:
                 index = ord.index(n)
                 length = (len(ord))-1
-                print("length:",length)
                 if index <= length:
-                    print(beskrivning[index])
+                    print("Discription of the word:",beskrivning[index])
             else:
                 print("Not valid...")
         elif choice == 3:
@@ -119,12 +110,8 @@ def menu():
     if choice == 1:
         listfunc()
     elif choice == 2:
-        print("***** Listor av tupler *****")
-        print("[1] Insert","[2] Lokup","[3] Exit program",sep="\n")
         tuplefunc()
     elif choice == 3:
-        print("***** Dictionary *****")    
-        print("[1] Insert","[2] Lokup","[3] Exit program",sep="\n")
         dictionaryfunc()
     elif choice == 4:
         print("Avslutar...")
