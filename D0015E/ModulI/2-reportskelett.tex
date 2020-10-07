@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[swedish]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
 \usepackage{amsmath, amsthm, amssymb}
 % Ändra INTE nästa rad (säger var texten ska typsättas)
 \usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
@@ -34,7 +35,7 @@
 \renewcommand\linenumberfont{\normalfont\bfseries\small}
 
 
-\title{Rapportskelett}
+\title{Algoritmer}
 %
 \author{Emil Wiklund\thanks{email: \texttt{emiwik-9@student.ltu.se}}\\  
         ~ \\
@@ -94,28 +95,35 @@ man löser en uppgift som denna men vi gör det som en övning i \LaTeX.
 senare. Invärdet är en vektor $X$ av $N$ naturliga tal. Dess utvärde är den
 maximala
 summan inom en delad sub vektor av invärdet. Exempelvis om invärdet är $3$ och
-$4$
+$4$ ur listan med nummer:
+%
+\begin{align*}
+  [31, -41, 59, 26, -53, 58, 97, -93, -23, 84]
+\end{align*}
+%
 kommer programmet att returnera summan av $X[3...7]$, dvs $187$. Problemet är
 enkelt
 när alla nummer är positiva, den största sub vektorn är input vektorn.
 Problemetuppstår när siffror är negativa. Skulle vi inkludera ett negativt
 nummer skulle man kunna hoppas på att ett positivt nummer skulle kunna ta ut det
-negativa
-  eller med andra ord kompensera. Om alla inputs skulle vara negativa nummer
-  skulle summan av sub vektorn vara noll vilket också ger den totala summan 0.
-
+negativa eller med andra ord kompensera. Om alla inputs skulle vara negativa
+nummer skulle summan av sub vektorn vara noll vilket också ger den totala
+summan $0$.
  
-  Det programmet man vill använda för detta är ett simpelt program som kör for
-each på paren av heltalen L och U där $1 <=l <= U <= N$. Detta beräknar summan
-av
-$x[L...U]$ och gör en kontroll om summan är större än den summan som är störst
+Det programmet man vill använda för detta är ett simpelt program som kör for
+each på paren av heltalen $L$ och $U$ där $1 \leq L \leq U \leq N$. Detta
+beräknar summan
+av $x[L...U]$ och gör en kontroll om summan är större än den summan som är
+störst
 inuläget. Koden som visas i Algorithm $1$ är kort och enkel att förstå. Däremot
 så
 är den långsam. Koden tar kring $1$ timme att köra om $N$ är $1000$ och $39$
 dagar om $N$
   är $10000$. Detaljerna angående tider går vi igenom senare.
-
- 
+%
+\newline
+\newline
+%
  Vi får en annan känsla för algoritmer och hur effektiva man skulle kunna göra
 dom. Detta kan vi göra genom att använda oss utav $“big-oh”$,
 notation\footnote{The notation}.
@@ -128,8 +136,10 @@ exekveras aldrig mer än $N$-gånger. Detta ger kostnad på algoritmen lika med
  $O(N)$. Om kostnadenmultipliceras per antalet gånger som den innersta snurran
 körs får vi kostnadenför hela programmet och som även är proportionerligt till 
 $N^2$. Så detta kan vi kalla för en kvadratisk algoritm.
-
-
+%
+\newline
+\newline
+%
 Dessa enkla steg illustrerar tekniken av $“big-oh”$, analys av tiden som det
 taratt köra och andra fördelar men även nackdelar. Den största nackdelen med
 denna är att vi fortfarande inte vet exakt hur lång tid det tar programmet för
@@ -139,14 +149,26 @@ Två stycken fördelar med denna metod är att den ofta kompenserar för sina
 nackdelar. $“Big-oh”$ analyser är ofta användbara när man utföra sådant som
 vibeskrev tidigare. Sedan är den ungefärliga tiden ofta tillräcklig för att
 utföra den uträckning som används för att bestämma om ett program är
-tillräckligt
-  effektivt för den givna uppgiften.
-
-
+tillräckligt effektivt för den givna uppgiften.
+%
+\newline
+%
 De kommande delar använder sig av ungefärliga exekveringstiden som ett sätt att
 mäta hur effektivt ett program är.
-
-
+\newpage
+\begin{center}
+%
+\begin{lstlisting}
+  MaxSoFar:= 0.0
+  sum L := 1 to N do
+  for U := 0.0
+  	sum := sum + X[I]
+	/* Sum now contains the
+		sum  of x[L..U] */
+  	MaxSoFar := max(MaxSoFar, sum)
+\end{lstlisting}
+%
+\end{center}
 
 \section{Nästa problem}
 \label{sec:uppg2}
