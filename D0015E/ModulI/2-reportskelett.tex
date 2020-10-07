@@ -1,0 +1,181 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+% Ändra INTE nästa rad (säger var texten ska typsättas)
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+% Ändra INTE nästa rad (som lägger till radnummer till vänster)
+\usepackage[left]{lineno}
+
+
+% Ändra INTE raderna nedan
+% Koden är från https://tex.stackexchange.com/questions/43648/
+% Den fixar radnumrering av text i närvaro av matematikomgivningar
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+
+
+% Ändra INTE nästa rad (gör så radnummer skrivs med fet stil)
+\renewcommand\linenumberfont{\normalfont\bfseries\small}
+
+
+\title{Rapportskelett}
+%
+\author{Emil Wiklund\thanks{email: \texttt{emiwik-9@student.ltu.se}}\\  
+        ~ \\
+        Luleå tekniska universitet \\ 
+        971 87 Luleå, Sverige}
+%          
+\date{\today}
+
+
+\begin{document}
+
+
+% Ändra INTE nästa rad (aktiverar utskrift av radnummer)
+\linenumbers
+
+
+\maketitle
+
+
+\begin{abstract}
+  Delen från september 1983 beskriver den vardagliga verkan som design av
+  algoritmer kan ha på programmerare. Från en algoritmisk synvinkel på
+  problemet kan man se att dessa kan göra ett program enklare att förstå
+  och skriva. I denna del har vi studerat ett bidrag inom ämnet sofistikerade
+  algotim metoder, dessa kan ibland leda till en stor ökning prestandamässigt. 
+  Denna delen är framtagen kring ett mindre problem med betoning på de
+  algoritmer som ska lösa dessa problem samt teknikerna på hur man designar
+  dom. Några av algoritmerna är lite mer komplicerade men dessa motverkas. 
+
+
+  Den första algoritmen som vi kommer att gå igenom tar 39 dagar att lösa när
+  problemet har storleken 10 000, den sista algoritmen löser samma problem
+  men på gör detta på en tredjedel av en sekund. 
+\end{abstract}
+
+
+\section{Introduktion}
+\label{sec:introduktion}
+
+
+Här kan man skriva massor om uppgiften, dess bakgrund, varför det är
+viktiga att lösa det osv men för oss räcker det med att introducera
+den. Ett bra sätt att skriva på är att sen behandla varje problem i
+egna avsnitt, där man inleder med att beskriva problemet noga innan
+man visar hur man kan lösa det.
+
+
+Faktum är att det blir lite krystat att skriva en liten rapport om hur
+man löser en uppgift som denna men vi gör det som en övning i \LaTeX. 
+
+
+\section{Problemet och ett simpelt program}
+\label{sec:uppg1}
+
+
+  Problemet uppstod i en endimensionellt mönsterigenkänning. Historien beskrivs
+senare. Invärdet är en vektor $X$ av $N$ naturliga tal. Dess utvärde är den
+maximala
+summan inom en delad sub vektor av invärdet. Exempelvis om invärdet är $3$ och
+$4$
+kommer programmet att returnera summan av $X[3...7]$, dvs $187$. Problemet är
+enkelt
+när alla nummer är positiva, den största sub vektorn är input vektorn.
+Problemetuppstår när siffror är negativa. Skulle vi inkludera ett negativt
+nummer skulle man kunna hoppas på att ett positivt nummer skulle kunna ta ut det
+negativa
+  eller med andra ord kompensera. Om alla inputs skulle vara negativa nummer
+  skulle summan av sub vektorn vara noll vilket också ger den totala summan 0.
+
+ 
+  Det programmet man vill använda för detta är ett simpelt program som kör for
+each på paren av heltalen L och U där $1 <=l <= U <= N$. Detta beräknar summan
+av
+$x[L...U]$ och gör en kontroll om summan är större än den summan som är störst
+inuläget. Koden som visas i Algorithm $1$ är kort och enkel att förstå. Däremot
+så
+är den långsam. Koden tar kring $1$ timme att köra om $N$ är $1000$ och $39$
+dagar om $N$
+  är $10000$. Detaljerna angående tider går vi igenom senare.
+
+ 
+ Vi får en annan känsla för algoritmer och hur effektiva man skulle kunna göra
+dom. Detta kan vi göra genom att använda oss utav $“big-oh”$,
+notation\footnote{The notation}.
+
+Uttrycken i den yttersta snurran exekveras exakt N-gånger och det i mittersta
+snurran exekveras som mest N-gånger i varje exekvering av den yttersta
+snurran.Multiplicera dessa två faktorer inuti den mittersta snurran visar att
+dessa fyrarader exekveras $O(N^2)$ antal gånger. Snurran i dessa fyra rader
+exekveras aldrig mer än $N$-gånger. Detta ger kostnad på algoritmen lika med
+ $O(N)$. Om kostnadenmultipliceras per antalet gånger som den innersta snurran
+körs får vi kostnadenför hela programmet och som även är proportionerligt till 
+$N^2$. Så detta kan vi kalla för en kvadratisk algoritm.
+
+
+Dessa enkla steg illustrerar tekniken av $“big-oh”$, analys av tiden som det
+taratt köra och andra fördelar men även nackdelar. Den största nackdelen med
+denna är att vi fortfarande inte vet exakt hur lång tid det tar programmet för
+en
+särskild input. Vi vet bara att antalet steg det tar att exekveras är $O(N^3)$.
+Två stycken fördelar med denna metod är att den ofta kompenserar för sina
+nackdelar. $“Big-oh”$ analyser är ofta användbara när man utföra sådant som
+vibeskrev tidigare. Sedan är den ungefärliga tiden ofta tillräcklig för att
+utföra den uträckning som används för att bestämma om ett program är
+tillräckligt
+  effektivt för den givna uppgiften.
+
+
+De kommande delar använder sig av ungefärliga exekveringstiden som ett sätt att
+mäta hur effektivt ett program är.
+
+
+
+\section{Nästa problem}
+\label{sec:uppg2}
+
+
+\section{Och ännu nästa problem...}
+\label{sec:uppgN}
+
+
+\section{Diskussion [och slutsatser]}
+\label{sec:disk}
+
+
+Sammanfatta vad som avhandlats i dokumentet och sätt det i
+sitt sammanhang.
+%
+\begin{thebibliography}{99}
+%
+\bibitem{latexcompanion} 
+Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+\textit{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+%
+\bibitem{einstein} 
+Albert Einstein. 
+\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+[\textit{On the electrodynamics of moving bodies}]. 
+Annalen der Physik, 322(10):891–921, 1905.
+%
+\end{thebibliography}
+%
+\end{document}
