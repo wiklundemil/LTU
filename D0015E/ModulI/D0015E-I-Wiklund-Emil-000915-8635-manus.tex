@@ -125,8 +125,8 @@ Ett exempel där man kör kod med “big-oh” kan se ut så här:
 Det som sker är att snurrorna kommer att byta ut $x$ och $y$ mot värdena 
 inuti snurran för $x$ respektive $y$ innanför parantersen, i detta fall med 
 ett naturligt tal N. Därav kommer print satsen att bli till $O(N^2)$ eftersom
-det blir O(N) multiplicerat med O(N) och detta är alltså körtiden för denna kod.
-$O(N^2)$
+det blir O(N) multiplicerat med O(N) och detta är alltså körtiden för denna
+kod.$O(N^2)$
 %
 
 
@@ -137,7 +137,8 @@ $O(N^2)$
 Problemet uppstod i en endimensionellt mönsterigenkänning. Historien beskrivs
 senare. Invärdet är en talföljd $X$ av $N$ naturliga tal. Dess utvärde är den
 maximala
-summan inom en delad under talföljd av invärdet. Exempelvis om invärdet är $3$ och
+summan inom en delad under talföljd av invärdet. Exempelvis om invärdet är $3$
+och
 $4$ ur listan med nummer:
 %
 \begin{align*}
@@ -146,12 +147,14 @@ $4$ ur listan med nummer:
 %
 kommer programmet att returnera summan av $X[3...7]$, dvs $187$. Problemet är
 enkelt
-när alla nummer är positiva, den största understa talföljden är lika med talföljden
+när alla nummer är positiva, den största understa talföljden är lika med
+talföljden
 med invärden.
 Problemet uppstår när siffror är negativa. Skulle vi inkludera ett negativt
-nummer skulle man kunna hoppas på att ett positivt nummer skulle kunna ta ut det
-negativa eller med andra ord kompensera. Om alla inputs skulle vara negativa
-nummer skulle summan av den undre talföljden vara noll vilket också ger den totala
+nummer skulle man kunna hoppas på att ett positivt nummer skulle kunna ta ut
+detnegativa eller med andra ord kompensera. Om alla inputs skulle vara negativa
+nummer skulle summan av den undre talföljden vara noll vilket också ger den
+totala
 summan $0$.
 %
 Det programmet man vill använda för detta är ett simpelt program som kör for
@@ -159,8 +162,8 @@ each på  de par av heltalen $L$ och $U$ där $1 \leq L \leq U \leq N$. Detta
 beräknar summan
 av $X[L...U]$ och gör en kontroll om summan är större än den summan som är
 störst
-inuläget. Koden som visas i Algorithm $1$ är kort och enkel att förstå. Däremot 
-så
+inuläget. Koden som visas i Algorithm $1$ är kort och enkel att förstå.
+Däremotså
 är den långsam. Koden tar kring $1$ timme att köra om $N$ är $1000$ och $39$
 dagar om $N$ är $10000$. Nedan ser vi koden för Algoritm 1:
 %
@@ -196,19 +199,21 @@ Vi får en annan känsla för algoritmer och hur effektiva man skulle kunna gör
 dom. Detta kan vi göra genom att använda oss utav “big-oh”,
 beteckningen\footnote{$O(N^2)$ kan ses som proportionerligt till $N^2$; både
 $15N^2 + 100N$ och $N^2/2 -10$ är $O(N^2)$. Sen så $f(N) = O(g(N))$ betyder att
-$f(N) < cg(N)$ för en konstant $c$ och tillräckligt stora värden av $N$. En formell
+$f(N) < cg(N)$ för en konstant $c$ och tillräckligt stora värden av $N$. En
+formell
 definition av beteckningen kan man hitta i de flesta böcker om design av
 algoritmer eller diskret matematik. }.
 %
 
 Uttrycken i den yttersta snurran exekveras exakt N-gånger och det i mittersta
 snurran exekveras som mest N-gånger i varje exekvering av den yttersta
-snurran. Multiplicerar dessa två faktorer inuti den mittersta snurran och visar att
+snurran. Multiplicerar dessa två faktorer inuti den mittersta snurran och visar
+att
 dessa fyra rader exekveras $O(N^2)$ antal gånger. Snurran i dessa fyra rader
 exekveras aldrig mer än $N$-gånger. Detta ger kostnad på algoritmen lika med
  $O(N)$. Om kostnaden multipliceras per antalet gånger som den innersta snurran
-körs får vi kostnaden för hela programmet och som även är proportionerligt till 
-$N^2$. Så detta kan vi kalla för en kvadratisk algoritm. Med kostnad kan vi 
+körs får vi kostnaden för hela programmet och som även är proportionerligt
+till$N^2$. Så detta kan vi kalla för en kvadratisk algoritm. Med kostnad kan vi
 tänka oss tiden det tar att köra koden. Nedan kan vi se koden
 för Algoritm 2:
 %
@@ -233,7 +238,8 @@ för Algoritm 2:
 %
 \end{center}
 %
-En kort sammanfattad förklaring angående Algoritm 2 är att den sparar variabler i sina
+En kort sammanfattad förklaring angående Algoritm 2 är att den sparar variabler
+i sina
 element dessa element är dom som hittills beräknats för att få fram summan på 
 deltalföljden som samtidigt har beräknats.
 %
