@@ -1,14 +1,6 @@
-class Person:
-    number = None
-    namn = None
-
-
-Emil = Person()
-Emil.number = "0709840002"
-Emil.name = "Emil Wiklund"
-
-Kalle = Person()
-Kalle.number = "070123002"
-Kalle.name = "Kalle Wiklund"
-
-print(Kalle.name)
+n = 0
+while True:
+    n += 1
+    person + n = "Person"+str(n)
+    print(person3)
+    o = input("enter")
