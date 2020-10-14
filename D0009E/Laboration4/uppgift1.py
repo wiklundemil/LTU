@@ -1,36 +1,33 @@
 #-------------------Telefonboken------------------------#
 class telefonbok:
-    name = None
-    number = None
-    def __init__(self, name, number):
-        self.name = name
-        self.number = number
-        self.dictionary = {} 
-    def info(self):
-        return 'Number: {}'.format(self.number) #Denna rad bestämmer vad som ska printas ut när info functionen anropas.
+    def __init__(self):
+        self.dictionary = {}
     # -------------- Metoder ---------------#
-    def add(self):
-        print(name, number)
-        
-
-        
+    def add(self, name, number):
+        self.dictionary[name] = number
+    def lookup(self, name):
+        for obj in self.dictionary:
+            if obj == name:
+                print("Number:", self.dictionary[obj])
+            else: 
+                print("Name does not exist in list...")
     # -------------- Metoder slut ---------------#
     
     # ------------- Prompt -------------#
-    def menu():
+    def prompt():
+        person = telefonbok()
         print("Commands:","add","lookup","alias","change","save","load","quit")
         print("Radmall: [command], [name], [number].")
         while True:
-            n = input("Skriv här:").split()
+            n = input("telebok>").split()
             if n[0] == "add":
                 name = n[1]
                 number = n[2]
-                person = telefonbok(name, number)
+                person.add(name, number)
                 print("Added")
             elif n[0] == "lookup":
                 name = n[1]
-                number = n[2]
-                print(person)
+                person.lookup(name)
             elif n[0] == "alias":
                 name = n[1]
                 number = n[2]
@@ -43,8 +40,9 @@ class telefonbok:
                 name = n[1]
                 number = n[2]
             elif n[0] == "quit":
+                exit()
                 print("quit")
             else:
                 print("Invalid input...")
     # ------------- Prompt slut -------------#
-telefonbok.menu()
+telefonbok.prompt()
