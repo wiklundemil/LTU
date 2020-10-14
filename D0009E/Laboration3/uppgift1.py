@@ -23,7 +23,7 @@ def lookup_dict(x):
     n = input("Word to lookup:")  #Ordet du vill kolla upp
     print(dictionary_list[n]) #Printar ut den grupp med nyckeln n enligt
     return dictionary_list 
-
+ 
 def insert_dict(x):
     dictionary_list = x
     
