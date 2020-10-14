@@ -1,0 +1,6 @@
+n = input("telebok>").split
+
+telebok> add Emil 0709840002
+add 	   = n[0]
+Emil 	   = n[1]
+0709840002 = n[2]
