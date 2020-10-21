@@ -1,2 +1,3 @@
-f = "Hej"
-print(f[:-1])
+dict = {"Key1" : "123"}
+
+print(dict.values())
