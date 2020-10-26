@@ -1,0 +1,18 @@
+h1423412e happy ending problem is so named because it led to the marriage of two mathematicians who worked on it, George Szekeres and Esther Klein. Essentially, the problem works like this:
+
+
+
+Make five dots at random places on a piece of paper. Assuming the dots aren't deliberately arranged—say, in a line—you should always be able to connect four of them to create a convex quadrilateral, which is a shape with four sides where all of the corners are less than 180 degrees. The gist of this theorem is that you'll always be able to create a convex quadrilateral with five random dots, regardless of where those dots are positioned.
+
+
+
+So that's how it works for four sides. But for a pentagon, a five-sided shape, it turns out you need nine dots. For a hexagon, it's 17 dots. But beyond that, we don't know. It's a mystery how many dots is required to create a heptagon or any larger shapes. More importantly, there should be a formula to tell us how many dots are required for any shape. Mathematicians suspect the equation is M=1+2N-2, where M is the number of dots and N is the number of sides in the shape. But as yet, they've only been able to prove that the answer is at least as big as the answer you get that way.
+Remember the pythagorean theorem, A2 + B2 = C2? The three letters correspond to the three sides of a right triangle. In a Pythagorean triangle, and all three sides are whole numbers. Let's extend this idea to three dimensions. In three dimensions, there are four numbers. In the image above, they are A, B, C, and G. The first three are the dimensions of a box, and G is the diagonal running from one of the top corners to the opposite bottom corner.
+
+
+
+Just as there are some triangles where all three sides are whole numbers, there are also some boxes where the three sides and the spatial diagonal (A, B, C, and G) are whole numbers. But there are also three more diagonals on the three surfaces (D, E, and F) and that raises an interesting question: can there be a box where all seven of these lengths are integers?
+
+
+
+The goal is to find a box where A2 + B2 + C2 = G2, and where all seven numbers are integers. This is called a perfect cuboid. Mathematicians have tried many different possibilities and have yet to find a single one that works. But they also haven't been able to prove that such a box doesn't exist, so the hunt is on for a perfect cuboid.
