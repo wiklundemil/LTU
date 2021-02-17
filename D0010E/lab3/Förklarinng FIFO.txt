@@ -1,0 +1,27 @@
+1. Båda fungerar
+
+2.
+a) Vid klick kommer den första i kön att tas bort (bli svart)
+
+b) Grå = De som ligger i kön just nu
+Vita = Object som finns att arbeta med
+Svarta = Borttagna object ur Queue (Färdiga object)
+
+c) Det är våran FIFO Queue. Vilka object som finns i kön just nu
+
+3.
+a) Fungerar 
+b) Samma som a) i 2.
+
+FIFO
+1. a) Klar
+b) klar
+c) klar?
+
+2. klar
+
+3. klar
+
+4. Förklara alla metoder i FIFO vad de gör
+
+Sedan klart.
