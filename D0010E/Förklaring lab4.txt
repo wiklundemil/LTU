@@ -1,0 +1,36 @@
+1.
+a) Först väljer man connect to game sedan skriver man in ledig port
+det kommer startas 2 klienter med port + 1.
+
+trycker man i rutorna placeras en bricka
+trycker man new game då clearas sitt board etc
+trycker man disconnect då stängs spelet ned
+
+b) samma isch
+
+2.
+Ändrat UNIT_SIZE    KLAR
+DEAFUALT_SIZE	KLAR
+INROW	KLAR
+
+3. KLAR
+
+4. KLAR
+
+5. KLAR 
+
+JAVADOC **KLART**
+
+KodGranksning
+C.KLAR
+
+C1.KLAR
+
+C2.a) KLAR
+b) RAD 56 i GomokuGUI
+
+C3. a) Ritar upp allt grafiskt som inte är knappar. Rutor/spelare
+b)att du sätter variabeln i drawRect till kanske +5? isch
+
+C4.a)klar
+b)PEKA ut observerserna
